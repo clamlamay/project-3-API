@@ -34,6 +34,6 @@ get '/' do
 		@model = Point.find(@id)
 		@model.destroy
 
-		{ :message => 'score has been deleted.'}.to_json
+		{ :message => 'Score has been deleted.'}.to_json
 	end
 end 
