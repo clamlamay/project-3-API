@@ -3,6 +3,9 @@ class Accounts < ActiveRecord::Migration[5.0]
 	create_table :accounts do |table|
 		table.string :username
 		table.string :password
+		# table.string :email
+		# table.string :password_hash
+  		# table.string :password_salt
 	end
 	# add_foreign_key :accounts, :username
   end

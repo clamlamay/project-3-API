@@ -1,17 +1,21 @@
 class ApplicationController < Sinatra::Base
 
+	@account_message = ''
+	@username = ''
+
 	require 'bundler'
 	Bundler.require()
 	require 'sinatra'
 	require 'sinatra/cross_origin'
 
-	# set :views, File.dirname(__FILE__) + '/views'
-	# set :public_folder, File.File.dirname(__FILE__) + '/public'
-
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'mysql2',
 		:database => 'Project_3'
 	)
+
+	# set :views, File.dirname(__FILE__) + '/views'
+	# set :public_folder, File.File.dirname(__FILE__) + '/public'
+	enable :sessions, :logging
 
 	register Sinatra::CrossOrigin
 
@@ -32,7 +36,26 @@ class ApplicationController < Sinatra::Base
 	    {:message => 'Home page not designed yet.'}.to_json
 	end
 
-	enable :sessions, :logging
+	not_found do
+		# ejs :not_found	#404 page
+		{:message => '#404 page.'}.to_json
+	end
 
+	def does_user_exist?(username)
+		user = Account.find_by(:username => username.to_s)
+		if user
+			return true
+		else
+			return false
+		end
+	end
+
+	def is_not_authenticated
+		session[:user].nil?	#bool
+	end
+
+	# get '/' do
+	# 	erb :home
+	# end
 
 end

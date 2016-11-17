@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="karaokeApp">
+  <head>
+    <title>Karaoke API</title>
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/angular-route.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <%= @account_message %>
+
+<section class='login'>
+	<h4>Welcome back, login!</h4>
+	<form action='/account/login' method='post'>
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<input type="submit" value='Take me to the choppa!'>
+	</form>
+</section>
+
+<section class='register'>
+	<h4>Want to register?</h4>
+	<form action='/account/register' method='post'>
+		<input type="text" name="username">
+		<input type="email" name="email">
+		<input type="password" name="password">
+		<input type="submit" value='Register now!'>
+	</form>
+</section>
+
+  </body>
+</html>
+
+
