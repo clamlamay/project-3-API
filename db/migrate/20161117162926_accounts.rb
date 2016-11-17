@@ -4,6 +4,6 @@ class Accounts < ActiveRecord::Migration[5.0]
 		table.string :username
 		table.string :password
 	end
-	add_foreign_key :accounts, :username
+	# add_foreign_key :accounts, :username
   end
 end
