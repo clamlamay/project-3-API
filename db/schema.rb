@@ -19,12 +19,14 @@ ActiveRecord::Schema.define(version: 20161117162951) do
 
   create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "score"
+    t.string "accounts_id"
   end
 
   create_table "songs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "artist"
     t.string "lyrics"
+    t.string "accounts_id"
   end
 
 end

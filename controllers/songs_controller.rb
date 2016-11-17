@@ -9,7 +9,9 @@ class SongsController < ApplicationController
 		Song.find(@id).to_json
 	end
 
-	post '/' do
+	post '/:id' do
+		@id = params[:id]
+		@model = Account.find(@id)
 		@title = params[:title]
 		@artist = params[:artist]
 		@lyrics = params[:lyrics]
@@ -23,12 +25,12 @@ class SongsController < ApplicationController
 		@model.to_json
 	end
 
-	patch '/:id' do
-		@id = params[:id]
-		@model = Song.find(@id)
+	post '/' do
 		@title = params[:title]
 		@artist = params[:artist]
 		@lyrics = params[:lyrics]
+
+		@model = Song.new
 		@model.title = @title
 		@model.artist = @artist
 		@model.lyrics = @lyrics
