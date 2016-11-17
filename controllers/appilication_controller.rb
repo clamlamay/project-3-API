@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'mysql2',
-		:database => 'xxxx'
+		:database => 'Project_3'
 	)
 
 	register Sinatra::CrossOrigin
