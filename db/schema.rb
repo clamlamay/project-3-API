@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20161117162951) do
   end
 
   create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-
     t.string  "score"
     t.integer "accounts_id"
     t.index ["accounts_id"], name: "index_points_on_accounts_id", using: :btree
@@ -30,7 +29,6 @@ ActiveRecord::Schema.define(version: 20161117162951) do
     t.string  "lyrics"
     t.integer "accounts_id"
     t.index ["accounts_id"], name: "index_songs_on_accounts_id", using: :btree
-
   end
 
 end
