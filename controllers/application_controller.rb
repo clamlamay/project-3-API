@@ -5,8 +5,8 @@ class ApplicationController < Sinatra::Base
 	require 'sinatra'
 	require 'sinatra/cross_origin'
 
-	set :views, File.dirname(__FILE__) + '/views'
-	set :public_folder, File.File.dirname(__FILE__) + '/public'
+	# set :views, File.dirname(__FILE__) + '/views'
+	# set :public_folder, File.File.dirname(__FILE__) + '/public'
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'mysql2',
