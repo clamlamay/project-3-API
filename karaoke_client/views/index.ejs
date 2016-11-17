@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="karaokeApp">
   <head>
-    <title><%= title %></title>
+    <title>Karaoke API</title>
     <script src="/javascripts/angular.min.js"></script>
     <script src="/javascripts/angular-route.min.js"></script>
     <script src="/javascripts/app.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    
+    <a href="/create">Add Song</a>
+    <div ng-view></div>
+
   </body>
 </html>
