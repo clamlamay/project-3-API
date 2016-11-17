@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
 	Bundler.require()
 	require 'sinatra'
 	require 'sinatra/cross_origin'
+	require 'bcrypt'
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'mysql2',
