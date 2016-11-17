@@ -1,8 +1,5 @@
 class ApplicationController < Sinatra::Base
 
-	@account_message = ''
-	@username = ''
-
 	require 'bundler'
 	Bundler.require()
 	require 'sinatra'
@@ -35,27 +32,5 @@ class ApplicationController < Sinatra::Base
 	get '/' do
 	    {:message => 'Home page not designed yet.'}.to_json
 	end
-
-	not_found do
-		# ejs :not_found	#404 page
-		{:message => '#404 page.'}.to_json
-	end
-
-	def does_user_exist?(username)
-		user = Account.find_by(:username => username.to_s)
-		if user
-			return true
-		else
-			return false
-		end
-	end
-
-	def is_not_authenticated
-		session[:user].nil?	#bool
-	end
-
-	# get '/' do
-	# 	erb :home
-	# end
 
 end

@@ -4,9 +4,6 @@ require './controllers/application_controller.rb'
 require './controllers/account_controller.rb'
 require './controllers/points_controller.rb'
 require './controllers/songs_controller.rb'
-# Sessions
-require './controllers/login_controller.rb'
-
 
 require './models/account'
 require './models/point'
@@ -16,8 +13,6 @@ map('/') { run ApplicationController }
 map('/users') { run AccountsController }
 map('/points') { run PointsController }
 map('/songs') { run SongsController }
-# Sessions
-map('/login') { run LoginController }
 
 before '/*' do 
 	puts "Route log:"
