@@ -21,13 +21,15 @@ class AccountsController < ApplicationController
 		@username = params[:username]
 		@password = params[:password]
 
-		password_salt = BCrypt::Engine.generate_salt
-		password_hash = BCrypt::Engine.hash_secret(@password, password_salt)
+		# password_salt = BCrypt::Engine.generate_salt
+		# password_hash = BCrypt::Engine.hash_secret(@password, password_salt)
 
 		@model = Account.new
 		@model.username = @username
-		@model.password_hash = password_hash
-		@model.password_salt = password_salt
+		# Delete code below once bcyrpt is setup
+		@model.password = @password 
+		# @model.password_hash = password_hash
+		# @model.password_salt = password_salt
 		@model.save
 
 		@model.to_json
