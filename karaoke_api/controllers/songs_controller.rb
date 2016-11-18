@@ -45,6 +45,7 @@ class SongsController < ApplicationController
 		@model.destroy
 
 		{ :message => 'Song has been deleted.'}.to_json
-
 	end
+
+
 end
