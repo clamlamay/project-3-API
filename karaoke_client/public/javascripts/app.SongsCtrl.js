@@ -16,19 +16,7 @@ angular.module('karaokeApp')
       });
     };
 
-    $scope.removeBlogEntry = function(song) {
-        console.log(song.id);
-        var Sure = confirm('Do you want to delete that song?');
-        if (Sure) {
-          $http.delete('http://localhost:9292/songs/' + song.id).success(function(result) {
-            $scope.fetch(); // auto-update my list
-          }).error(function(err) {
-            console.log(err);
-          });
-        }
-      };
-
-    $scope.fetch();
+  $scope.fetch();
 
   $scope.showLyric = function(id) {
     console.log(id, ' is the id')
