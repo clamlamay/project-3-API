@@ -17,6 +17,8 @@ angular.module('karaokeApp')
     });
   }
 
+  $scope.users = [];
+
   $scope.populateList = function() {
     $http.get('http://localhost:9292/users').success(function (data) {
       $scope.users = data;
@@ -25,5 +27,7 @@ angular.module('karaokeApp')
       console.log(err);
     });
   }
-   $scope.populateList();
+  
+  $scope.populateList();
+
 });
