@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
 	# end
 
 
-	post '/users' do
+	post '/' do
 		@username = params[:username]
 		@password = params[:password]
 
@@ -21,7 +21,6 @@ class AccountsController < ApplicationController
 
 		@model = Account.new
 		@model.username = @username
-		# Delete code below once bcyrpt is setup
 		@model.password = @password 
 		# @model.password_hash = password_hash
 		# @model.password_salt = password_salt

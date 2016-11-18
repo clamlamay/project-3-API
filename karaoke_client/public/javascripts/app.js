@@ -16,18 +16,18 @@ angular.module('karaokeApp', [ 'ngRoute'
       //   templateUrl: 'ngViews/home.html',
       //   controller: 'PostsCtrl'
       // })
-      .when('/addSong', {
-        templateUrl: 'ngViews/create.html',
-        controller: 'SongCreateCtrl'
-      })
+      // .when('/addSong', {
+      //   templateUrl: 'ngViews/create.html',
+      //   controller: 'SongCreateCtrl'
+      // })
       // .when('/admin', {
       //   templateUrl: 'ngViews/admin.html',
       //   controller: 'AdminDeleteCtrl'
       // })
-      // .when('/user', {
-      //   templateUrl: 'ngViews/cats.html',
-      //   controller: 'UserCtrl'
-      // })
+      .when('/', {
+        templateUrl: 'ngViews/user.html',
+        controller: 'UserCtrl'
+      });
       // .when('/play', {
       //   templateUrl: 'ngViews/dogs.html',
       //   controller: 'PlayCtrl'

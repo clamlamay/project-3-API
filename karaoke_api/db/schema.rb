@@ -14,8 +14,7 @@ ActiveRecord::Schema.define(version: 20161117162951) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username"
-    t.string "password_hash"
-    t.string "password_salt"
+    t.string "password"
   end
 
   create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
