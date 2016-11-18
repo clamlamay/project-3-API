@@ -5,7 +5,6 @@ require './controllers/account_controller.rb'
 require './controllers/points_controller.rb'
 require './controllers/songs_controller.rb'
 
-
 require './models/account'
 require './models/point'
 require './models/song'

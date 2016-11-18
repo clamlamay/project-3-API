@@ -1,5 +1,13 @@
 class AccountsController < ApplicationController
 
+	# before '/*' do
+	# 	if session[:logged] == nil
+
+	# 		session[:warning] = 'not logged'
+	# 		redirect('/users/login')
+	# 	end
+	# end
+
 	get '/' do
 		Account.all.to_json
 	end

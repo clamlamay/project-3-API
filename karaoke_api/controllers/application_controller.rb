@@ -7,14 +7,16 @@ class ApplicationController < Sinatra::Base
 	Bundler.require()
 	require 'sinatra'
 	require 'sinatra/cross_origin'
-
-	# set :views, File.dirname(__FILE__) + '/views'
-	# set :public_folder, File.File.dirname(__FILE__) + '/public'
+	require 'bcrypt'
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'mysql2',
 		:database => 'Project_3'
 	)
+
+	# set :views, File.dirname(__FILE__) + '/views'
+	# set :public_folder, File.File.dirname(__FILE__) + '/public'
+	enable :sessions, :logging
 
 	register Sinatra::CrossOrigin
 
@@ -47,10 +49,5 @@ class ApplicationController < Sinatra::Base
 	get '/' do
 	    {:message => 'Home page not designed yet.'}.to_json
 	end
-
-
-
-	
-
 
 end
