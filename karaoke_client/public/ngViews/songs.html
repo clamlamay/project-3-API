@@ -2,13 +2,24 @@
 
 <section>
     <article ng-repeat="song in songs">
-        <button ng-click="showLyric(song.id)">
+
+        <!-- <button ng-click="showLyric(song.id)">
 	        <h3>{{song.title}}</h3>
-	        <p>by <em>{{song.artist}}</em></p>
+	        <p>by <em>{{song.artist}}</em></p> -->
 	        <!-- <p>{{song.id}}</p> -->
 	        <!-- <p>"{{song.lyrics}}"</p> -->
-	    </button>
+	    <!-- </button> -->
+
+        <h3>{{song.title}}</h3>
+        <p><em>by </em>{{song.artist}}</p>
+        <p>"{{song.lyrics}}"</p>
+        <p>Song.Id : {{song.id}}</p>
+        <p>Song.accounts_id : {{song.accounts_id}}</p>
+        <button data-id="{{song.id}}"
+        		ng-click="removeBlogEntry(song)">Remove Song</button>
     </article>
 </section>
+
+<br>
 
 <button ng-click="changeRoute()">Add Songs</button>
