@@ -1,6 +1,6 @@
 class ApplicationController < Sinatra::Base
 
-	@account_message = ""
+	@account_message = ''
 	@username = ''
 
 	require 'bundler'
@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
 	require 'sinatra'
 	require 'sinatra/cross_origin'
 	require 'bcrypt'
+	require 'pry'
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'mysql2',
@@ -49,5 +50,12 @@ class ApplicationController < Sinatra::Base
 	get '/' do
 	    {:message => 'Home page not designed yet.'}.to_json
 	end
+
+	# before '/*' do
+	# 	if session[:logged] == nil
+	# 		session[:warning] = 'not logged'
+	# 		{:message => 'You are not logged in.'}.to_json
+	# 	end
+	# end
 
 end
