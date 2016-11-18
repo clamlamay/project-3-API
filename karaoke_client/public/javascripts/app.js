@@ -28,9 +28,9 @@ angular.module('karaokeApp', [ 'ngRoute'
         templateUrl: 'ngViews/songs.html',
         controller: 'SongsCtrl'
       })
-       .when('/users', {
-        templateUrl: 'ngViews/user.html',
-        controller: 'UserCtrl'
+      .when('/songs/:id', {
+        templateUrl: 'ngViews/lyrics.html',
+        controller: 'LyricsCtrl'
       });
 
     $routeProvider.otherwise({ redirectTo: '/' });

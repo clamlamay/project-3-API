@@ -19,4 +19,9 @@ angular.module('karaokeApp')
 
   $scope.fetch();
 
+  $scope.showLyric = function(id) {
+    console.log(id, ' is the id')
+    $location.path('http://localhost:9292/songs' + id );
+  }
+
 });
