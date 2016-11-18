@@ -12,26 +12,24 @@ angular.module('karaokeApp', [ 'ngRoute'
     })
 
     $routeProvider
-      // .when('/', {
-      //   templateUrl: 'ngViews/home.html',
-      //   controller: 'PostsCtrl'
-      // })
-      // .when('/addSong', {
-      //   templateUrl: 'ngViews/create.html',
-      //   controller: 'SongCreateCtrl'
-      // })
-      // .when('/admin', {
-      //   templateUrl: 'ngViews/admin.html',
-      //   controller: 'AdminDeleteCtrl'
-      // })
-      .when('/', {
+
+      .when('/user', {
         templateUrl: 'ngViews/user.html',
         controller: 'UserCtrl'
+      })
+
+      .when('/', {
+        templateUrl: 'ngViews/home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/add', {
+        templateUrl: 'ngViews/add.html',
+        controller: 'AddSongCtrl'
+      })
+      .when('/songs', {
+        templateUrl: 'ngViews/songs.html',
+        controller: 'SongsCtrl'
       });
-      // .when('/play', {
-      //   templateUrl: 'ngViews/dogs.html',
-      //   controller: 'PlayCtrl'
-      // });
 
     $routeProvider.otherwise({ redirectTo: '/' });
   }

@@ -1,6 +1,6 @@
-<h1>Add New Song</h1>
+<h1>Add a New Song</h1>
 
-<!-- {{message}} -->
+{{message}}
 
 <form ng-submit="addSong(title, artist, lyrics)">
     <input type="text" ng-model="title" placeholder="Title">
@@ -8,3 +8,5 @@
     <input type="text" ng-model="lyrics" placeholder="Lyrics">
     <input type="submit" value="Add Song">
 </form>
+
+<button ng-click="changeRoute()">View Songs</button>
