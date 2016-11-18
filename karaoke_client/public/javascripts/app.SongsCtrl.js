@@ -1,5 +1,5 @@
 angular.module('karaokeApp')
-.controller('SongsCtrl', function($scope, $http, $location) {
+.controller('SongsCtrl', function($scope, $http, $location, $routeParams) {
 
   $scope.songs = [];
 
@@ -20,7 +20,9 @@ angular.module('karaokeApp')
 
   $scope.showLyric = function(id) {
     console.log(id, ' is the id')
-    $location.path('http://localhost:9292/songs' + id );
+    console.log($routeParams)
+    console.log($location)
+    $location.path('/:' + id );
   };
 
 });
