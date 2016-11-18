@@ -22,7 +22,7 @@ angular.module('karaokeApp')
     console.log(id, ' is the id')
     console.log($routeParams)
     console.log($location)
-    $location.path('/:' + id );
+    $location.path('/songs/:' + id );
   };
 
 });
