@@ -12,10 +12,13 @@ angular.module('karaokeApp', [ 'ngRoute'
     })
 
     $routeProvider
-
       .when('/', {
         templateUrl: 'ngViews/home.html',
         controller: 'HomeCtrl'
+      })
+      .when('/user', {
+        templateUrl: 'ngViews/user.html',
+        controller: 'UserCtrl'
       })
       .when('/add', {
         templateUrl: 'ngViews/add.html',
