@@ -19,10 +19,8 @@ angular.module('karaokeApp')
   $scope.fetch();
 
   $scope.showLyric = function(id) {
-    console.log(id, ' is the id')
-    console.log($routeParams)
-    console.log($location)
-    $location.path('/:' + id );
+    // console.log(id, ' is the id')
+    $location.path('/' + id );
   };
 
 });

@@ -33,7 +33,7 @@ angular.module('karaokeApp', [ 'ngRoute'
         controller: 'SongsCtrl'
 
       })
-      .when('/songs/:id', {
+      .when('/:id', {
         templateUrl: 'ngViews/lyrics.html',
         controller: 'LyricsCtrl'
       });
