@@ -1,11 +1,12 @@
 class AccountsController < ApplicationController
 
+	@username = ''
 
 	get '/' do
-		Account.all.to_json
+		# show login/registration page
 	end
 
-	post '/' do
+	post '/register' do
 		@username = params[:username]
 		@password = params[:password]
 
@@ -27,22 +28,29 @@ class AccountsController < ApplicationController
 	post '/login' do
 		@username = params[:username]
 		@password = params[:password]
-		if does_user_exist?(@username) == true
-			session[:user] = @username
-			p session
-			{ :message => 'Started session.'}.to_json
-		else
+
+		if does_user_exist?(@username) == false
 			{ :message => 'You need to register.'}.to_json	
-			# redirect '/register'
+			redirect '/register'
 		end
+
+		session[:user] = @username
+		p session
+		{ :message => 'Started session.'}.to_json
+		# redirect account page
 
 		# @model = Account.where(:username => @username).first!
 		# if @model.password_hash == BCrypt::Engine.hash_secret(@password, @model.password_salt)
 		# 	@account_message = "Welcome back!"
 		# 	session[:user] = @model
+
 		# 	@username = session[:user][:username]
+		# 	#binding.pry
+
+		# 	return erb :login_notice
 		# else
-		# 	@account_message = "Sorry, your password did not match. Try again?"
+		# 	@account_message = "Sorry, you password did not match. Try again?"
+		# 	return erb :login_notice
 		# end
 	end
 
@@ -50,8 +58,6 @@ class AccountsController < ApplicationController
 		session[:user] = nil
 		redirect '/'
 	end
-
-
 
 	# delete '/:id' do
 	# 	@id = params[:id]
