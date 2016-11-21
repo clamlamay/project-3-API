@@ -51,11 +51,4 @@ class ApplicationController < Sinatra::Base
 	    {:message => 'Home page not designed yet.'}.to_json
 	end
 
-	# before '/*' do
-	# 	if session[:logged] == nil
-	# 		session[:warning] = 'not logged'
-	# 		{:message => 'You are not logged in.'}.to_json
-	# 	end
-	# end
-
 end
