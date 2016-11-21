@@ -15,20 +15,20 @@ ActiveRecord::Schema.define(version: 20161117162951) do
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username"
     t.string "password"
+    t.string "password_hash"
+    t.string "password_salt"
   end
 
   create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "score"
-    t.integer "accounts_id"
-    t.index ["accounts_id"], name: "index_points_on_accounts_id", using: :btree
+    t.integer "account_id"
   end
 
   create_table "songs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "title"
     t.string  "artist"
     t.string  "lyrics"
-    t.integer "accounts_id"
-    t.index ["accounts_id"], name: "index_songs_on_accounts_id", using: :btree
+    t.integer "account_id"
   end
 
 end

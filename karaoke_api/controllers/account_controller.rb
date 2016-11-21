@@ -10,7 +10,6 @@ class AccountsController < ApplicationController
 	post '/register' do
 		@username = params[:username]
 		@password = params[:password]
-
 		# password_salt = BCrypt::Engine.generate_salt
 		# password_hash = BCrypt::Engine.hash_secret(@password, password_salt)
 
@@ -23,6 +22,8 @@ class AccountsController < ApplicationController
 
 		@account_message = "You have successfully registered and you are logged in :)"
 		session[:user] = @username
+		session[:userid] = @model.id
+		p session
 		@model.to_json
 	end
 
@@ -36,6 +37,8 @@ class AccountsController < ApplicationController
 		end
 
 		session[:user] = @username
+		# @id = params[:id]
+		# session[:userid] = @id
 		p session
 		{ :message => 'Started session.'}.to_json
 		# redirect account page
