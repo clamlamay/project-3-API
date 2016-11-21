@@ -3,7 +3,8 @@ class AccountsController < ApplicationController
 	@username = ''
 
 	get '/' do
-		# show login/registration page
+		# show login/registration page eventually
+		Account.all.to_json
 	end
 
 	post '/register' do
