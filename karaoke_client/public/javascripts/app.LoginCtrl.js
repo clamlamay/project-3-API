@@ -11,11 +11,11 @@ angular.module('karaokeApp')
     }).success(function(results) {
       
       console.log(results);
-
       // $rootScope.key = results.user_id;
       console.log($rootScope.key);
       $scope.messages = 'Welcome back, ' + username + '!' ;
       console.log('This is working');
+      console.log(status);
     }).error(function(err) {
     	$scope.messages = 'Please try again.';
     	console.log('Ajax request failed.');

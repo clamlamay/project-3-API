@@ -10,7 +10,7 @@ angular.module('karaokeApp')
       params: { username: username, password: password }
     }).success(function(results) {
       console.log(results.id);
-      $rootScope.id = results.id;
+      $rootScope.apiKey = results.api_key;
       $scope.messages = 'Thanks for joining, ' + username + '!' ;
     }).error(function(err) {
       console.log('Ajax request failed.');

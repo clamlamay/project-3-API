@@ -25,7 +25,7 @@ angular.module('karaokeApp')
     $http({
       url: 'http://localhost:9292/songs/',
       method: 'POST',
-      params: { title: title, artist: artist, lyrics: lyrics, account_id: $rootScope.id}
+      params: { title: title, artist: artist, lyrics: lyrics, account_id: $rootScope.id, api_key: $rootScope.apiKey}
     }).success(function(results) {
       console.log($rootScope.id);
       $scope.message = $scope.messages[1];
