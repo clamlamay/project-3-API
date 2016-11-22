@@ -44,7 +44,6 @@ class ApplicationController < Sinatra::Base
 
 	enable :sessions, :logging
 
-
 	set :allow_origin, :any
 	set :allow_methods, [:get, :post, :patch, :delete]
 

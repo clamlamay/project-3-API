@@ -11,11 +11,12 @@ class AccountsController < ApplicationController
 		@password = params[:password]
 		password_salt = BCrypt::Engine.generate_salt
 		password_hash = BCrypt::Engine.hash_secret(@password, password_salt)
+	
 
 		@model = Account.new
-		# binding.pry
 		@model.username = @username
-		@model.password = @password 
+		@model.password = @password
+		@model.api_key = 'kota'
 		@model.password_hash = password_hash
 		@model.password_salt = password_salt
 		@model.save
@@ -28,16 +29,14 @@ class AccountsController < ApplicationController
 	post '/login' do
 		@username = params[:username]
 		@password = params[:password]
+		@api_key = params[:api_key]
 		if does_user_exist?(@username) == false
-			{ :message => 'You need to register.'}.to_json	
-			redirect '/register'
+			{:status => 403}.to_json
 		end
 
-		# session[:user] = params[:username]
-		# @id = params[:id] 
-		# session[:userid] = @id
-		{ :message => 'Started session.'}.to_json
-		# redirect account page
+		@model = Account.where(:username => @username).to_json	
+		{:message => 'Welcome Back'}.to_json
+
 
 		# @model = Account.where(:username => @username).first!
 		# if @model.password_hash == BCrypt::Engine.hash_secret(@password, @model.password_salt)
@@ -45,7 +44,6 @@ class AccountsController < ApplicationController
 		# 	session[:user] = @model
 
 		# 	@username = session[:user][:username]
-		# 	#binding.pry
 
 		# 	return erb :login_notice
 		# else
