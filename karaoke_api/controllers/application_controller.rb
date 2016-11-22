@@ -1,28 +1,29 @@
 class ApplicationController < Sinatra::Base
 
+	require 'bundler'
+	Bundler.require()
+	
 	@account_message = ''
 	@username = ''
 
-	require 'bundler'
-	Bundler.require()
-	require 'sinatra'
-	require 'sinatra/cross_origin'
-	require 'bcrypt'
-	require 'pry'
 
+	# ActiveRecord::Base.establish_connection(
+	# 	:adapter => 'mysql2',
+	# 	:database => 'Project_3'
+	# )
 	ActiveRecord::Base.establish_connection(
-		:adapter => 'mysql2',
-		:database => 'Project_3'
+		:adapter  => 'sqlite3',
+  	:database => 'development.db'
 	)
 
 	# set :views, File.dirname(__FILE__) + '/views'
 	# set :public_folder, File.File.dirname(__FILE__) + '/public'
 	enable :sessions, :logging
 
-	register Sinatra::CrossOrigin
+	# register Sinatra::CrossOrigin
 
-	set :allow_origin, :any
-	set :allow_methods, [:get, :post, :patch, :delete]
+	# set :allow_origin, :any
+	# set :allow_methods, [:get, :post, :patch, :delete]
 
 	options "*" do
 		response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"

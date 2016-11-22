@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/cross_origin'
 
 require './controllers/application_controller.rb'
 require './controllers/account_controller.rb'

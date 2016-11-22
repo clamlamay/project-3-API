@@ -1,6 +1,6 @@
 class PointsController < ApplicationController
 	
-get '/' do
+	get '/' do
 		Point.all.to_json
 	end
 
