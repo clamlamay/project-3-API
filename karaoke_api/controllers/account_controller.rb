@@ -35,8 +35,10 @@ class AccountsController < ApplicationController
 		end
 
 		@model = Account.where(:username => @username).to_json	
-		{:message => 'Welcome Back'}.to_json
-
+		# {:message => 'Welcome Back'}.to_json
+		# @model.username = @username
+		# @model.password = @password
+		# @model.api_key = @api_key
 
 		# @model = Account.where(:username => @username).first!
 		# if @model.password_hash == BCrypt::Engine.hash_secret(@password, @model.password_salt)

@@ -27,16 +27,16 @@ class ApplicationController < Sinatra::Base
 		puts request.host
 		puts params
 		puts request.path
-		puts 'Session:'
-		p session
+		# puts 'Session:'
+		# p session
 	end
 
 	after '/*' do 
 		puts "Completed Route Log:"
 		puts response.body
 		puts response.status
-		puts 'Session:'
-		p session
+		# puts 'Session:'
+		# p session
 	end
 
 	# set :views, File.dirname(__FILE__) + '/views'
@@ -48,7 +48,6 @@ class ApplicationController < Sinatra::Base
 	set :allow_methods, [:get, :post, :patch, :delete]
 
 	options "*" do
-
 		response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
 	    response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
 	    200
@@ -63,11 +62,11 @@ class ApplicationController < Sinatra::Base
 		end
 	end
 
-	def is_not_authenticated
-		p 'Testing for auth is_not_authenticated'
-		p session
-		session[:user].nil?	#bool
-	end
+	# def is_not_authenticated
+	# 	p 'Testing for auth is_not_authenticated'
+	# 	p session
+	# 	session[:user].nil?	#bool
+	# end
 
 	get '/' do
 	    {:message => 'Home page not designed yet.'}.to_json

@@ -7,10 +7,12 @@ angular.module('karaokeApp')
     $http({
       url: 'http://localhost:9292/users/register',
       method: 'POST',
-      params: { username: username, password: password }
+      params: { username: username, password: password}
     }).success(function(results) {
       console.log(results.id);
+      console.log(results.api_key)
       $rootScope.apiKey = results.api_key;
+      $rootScope.id = results.id;
       $scope.messages = 'Thanks for joining, ' + username + '!' ;
     }).error(function(err) {
       console.log('Ajax request failed.');

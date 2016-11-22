@@ -9,13 +9,10 @@ angular.module('karaokeApp')
       method: 'POST',
       params: { username: username, password: password }
     }).success(function(results) {
-      
       console.log(results);
-      // $rootScope.key = results.user_id;
-      console.log($rootScope.key);
+      console.log($rootScope.api_key);
       $scope.messages = 'Welcome back, ' + username + '!' ;
-      console.log('This is working');
-      console.log(status);
+      console.log('Post success.');
     }).error(function(err) {
     	$scope.messages = 'Please try again.';
     	console.log('Ajax request failed.');
