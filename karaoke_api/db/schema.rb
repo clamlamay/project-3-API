@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161117162951) do
 
-  create_table "accounts", force: :cascade do |t|
+  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username"
     t.string "password"
     t.string "api_key"
@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(version: 20161117162951) do
     t.string "password_salt"
   end
 
-  create_table "points", force: :cascade do |t|
+  create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "score"
     t.integer "account_id"
   end
 
-  create_table "songs", force: :cascade do |t|
+  create_table "songs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "title"
     t.string  "artist"
     t.string  "lyrics"

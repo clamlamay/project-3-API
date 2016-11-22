@@ -47,15 +47,13 @@ class SongsController < ApplicationController
 		@title = params[:title]
 		@artist = params[:artist]
 		@lyrics = params[:lyrics]
-		# @account_id = params[:account_id]
-		p '--------------------------------------------------'
-		p session
-		binding.pry
+		@account_id = params[:account_id]
+
 		@model = Song.new
 		@model.title = @title
 		@model.artist = @artist
 		@model.lyrics = @lyrics
-		@model.id = @id
+		@model.account_id = @account_id
 		@model.save
 
 		@model.to_json

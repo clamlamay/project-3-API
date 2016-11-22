@@ -3,10 +3,6 @@ class AccountsController < ApplicationController
 	@username = ''
 
 	get '/' do
-		p 'Session:'
-		p session
-		p '------------------------------------'
-		# show login/registration page eventually
 		Account.all.to_json
 	end
 
@@ -25,33 +21,21 @@ class AccountsController < ApplicationController
 		@model.save
 
 		@account_message = "You have successfully registered and you are logged in :)"
-		session[:user] = 'a'
-		p 'session:'
-		p session
+		
 		@model.to_json
 	end
 
 	post '/login' do
-		p 'session:'
-		p session
-		p '------------------------------'
 		@username = params[:username]
 		@password = params[:password]
-
-
-
-
 		if does_user_exist?(@username) == false
 			{ :message => 'You need to register.'}.to_json	
 			redirect '/register'
 		end
 
 		# session[:user] = params[:username]
-		session[:user] = 'a'
-		# @id = params[:id]
+		# @id = params[:id] 
 		# session[:userid] = @id
-		p 'session:'
-		p session
 		{ :message => 'Started session.'}.to_json
 		# redirect account page
 
@@ -71,8 +55,6 @@ class AccountsController < ApplicationController
 	end
 
 	get '/logout' do
-		p 'session:'
-		p session
 		# session[:user] = nil
 		redirect '/'
 	end

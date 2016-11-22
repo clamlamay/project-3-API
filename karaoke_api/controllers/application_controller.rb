@@ -3,7 +3,8 @@ class ApplicationController < Sinatra::Base
 	require 'bundler'
 	Bundler.require()
 
-	require 'sinatra/cross_origin'
+	register Sinatra::CrossOrigin
+
 
 	@account_message = ''
 	@username = ''
@@ -17,13 +18,32 @@ class ApplicationController < Sinatra::Base
  #  		:database => 'karaoke.db'
 	# )
 
+	configure do
+	  	enable :cross_origin
+	end
+
+	before '/*' do 
+		puts "Route log:"
+		puts request.host
+		puts params
+		puts request.path
+		puts 'Session:'
+		p session
+	end
+
+	after '/*' do 
+		puts "Completed Route Log:"
+		puts response.body
+		puts response.status
+		puts 'Session:'
+		p session
+	end
+
 	# set :views, File.dirname(__FILE__) + '/views'
 	# set :public_folder, File.File.dirname(__FILE__) + '/public'
 
 	enable :sessions, :logging
-	
 
-	register Sinatra::CrossOrigin
 
 	set :allow_origin, :any
 	set :allow_methods, [:get, :post, :patch, :delete]
