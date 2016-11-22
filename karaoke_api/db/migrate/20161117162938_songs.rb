@@ -5,8 +5,6 @@ class Songs < ActiveRecord::Migration[5.0]
 		table.string :artist
 		table.string :lyrics
 		table.integer :account_id, foreign_key: :account
-		# table.references :accounts, column: :id, index: true
 	end 
-	# add_foreign_key :accounts, :accounts_id
   end
 end

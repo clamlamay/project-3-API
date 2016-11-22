@@ -1,4 +1,5 @@
 require 'sinatra/base'
+# require 'sinatra/cross_origin'
 
 require './controllers/application_controller.rb'
 require './controllers/account_controller.rb'
@@ -14,15 +15,24 @@ map('/users') { run AccountsController }
 map('/points') { run PointsController }
 map('/songs') { run SongsController }
 
-# before '/*' do 
-# 	puts "Route log:"
-# 	puts request.host
-# 	puts params
-# 	puts request.path
-# end
+configure do
+  	enable :cross_origin
+end
 
-# after '/*' do 
-# 	puts "Completed Route Log:"
-# 	puts reponse.body
-# 	puts response.status
-# end
+before '/*' do 
+	puts "Route log:"
+	puts request.host
+	puts params
+	puts request.path
+	puts 'Session:'
+	p session
+end
+
+after '/*' do 
+	puts "Completed Route Log:"
+	puts reponse.body
+	puts response.status
+	puts 'Session:'
+	p session
+end
+

@@ -1,15 +1,6 @@
 class SongsController < ApplicationController
 
 	get '/' do
-		p 'session get router ---------------------------------'
-		#session[:session_id]
-		#session[:usernameeee] = 'jim'
-		#p session
-
-
-
-
-		binding.pry
 		Song.all.to_json
 	end
 
@@ -18,6 +9,23 @@ class SongsController < ApplicationController
 		Song.find(@id).to_json
 	end
 
+
+	patch '/:id' do
+		@id = params[:id]
+		@model = Account.find(@id)
+		@title = params[:title]
+		@artist = params[:artist]
+		@lyrics = params[:lyrics]
+
+		@model = Song.new
+		@model.title = @title
+		@model.artist = @artist
+		@model.lyrics = @lyrics
+		@model.id = @id
+		@model.save
+		p model
+		@model.to_json
+	end 
 
 	# get '/users/:id' do
 	# 	binding.pry
@@ -34,22 +42,20 @@ class SongsController < ApplicationController
 
 
 	post '/' do
-		p '-----------------------------------------'
-		#p session
-		#p session[:username]
-		p '-----------------------------------------'
-		# @id = params[:id]
-		# @model = Account.find(@id)
+
+		@id = params[:id]
 		@title = params[:title]
 		@artist = params[:artist]
 		@lyrics = params[:lyrics]
 		# @account_id = params[:account_id]
-
+		p '--------------------------------------------------'
+		p session
+		binding.pry
 		@model = Song.new
 		@model.title = @title
 		@model.artist = @artist
 		@model.lyrics = @lyrics
-		# @model.account_id = @id
+		@model.id = @id
 		@model.save
 
 		@model.to_json

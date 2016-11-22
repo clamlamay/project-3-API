@@ -1,7 +1,7 @@
 class PointsController < ApplicationController
 	
-get '/' do
-	binding.pry
+
+	get '/' do
 		Point.all.to_json
 	end
 

@@ -1,39 +1,39 @@
 class ApplicationController < Sinatra::Base
 
 	require 'bundler'
-	require 'sinatra/cross_origin'
-
 	Bundler.require()
 
-	#register Sinatra::CrossOrigin
+	require 'sinatra/cross_origin'
 
-	
-	# @account_message = ''
-	# @username = ''
+	@account_message = ''
+	@username = ''
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'mysql2',
 		:database => 'Project_3'
 	)
+	# ActiveRecord::Base.establish_connection(
+	# 	:adapter  => 'sqlite3',
+ #  		:database => 'karaoke.db'
+	# )
 
 	# set :views, File.dirname(__FILE__) + '/views'
 	# set :public_folder, File.File.dirname(__FILE__) + '/public'
-	#  set :session_secret, "hi"
-	# enable :sessions, :logging
-	enable :sessions
 
-	# options "*" do
-	# 	response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
-	#     response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
-	#     200
-	# end
+	enable :sessions, :logging
+	
 
-	# configure do
-	#   enable :cross_origin
-	# end
+	register Sinatra::CrossOrigin
 
-	#set :session_secret, "My session secret"
-   
+	set :allow_origin, :any
+	set :allow_methods, [:get, :post, :patch, :delete]
+
+	options "*" do
+
+		response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
+	    response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+	    200
+	end
 
 	def does_user_exist?(username)
 		user = Account.find_by(:username => username.to_s)
@@ -45,6 +45,8 @@ class ApplicationController < Sinatra::Base
 	end
 
 	def is_not_authenticated
+		p 'Testing for auth is_not_authenticated'
+		p session
 		session[:user].nil?	#bool
 	end
 
