@@ -16,10 +16,14 @@ angular.module('karaokeApp', [ 'ngRoute'
         templateUrl: 'ngViews/score.html',
         controller: 'ScoreCtrl'
       })
-      // .when('/', {
-      //   templateUrl: 'ngViews/home.html',
-      //   controller: 'HomeCtrl'
-      // })
+      .when('/', {
+        templateUrl: 'ngViews/home.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/register', {
+        templateUrl: 'ngViews/register.html',
+        controller: 'RegisterCtrl'
+      })
       .when('/user', {
         templateUrl: 'ngViews/user.html',
         controller: 'UserCtrl'

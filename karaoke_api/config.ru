@@ -14,15 +14,15 @@ map('/users') { run AccountsController }
 map('/points') { run PointsController }
 map('/songs') { run SongsController }
 
-before '/*' do 
-	puts "Route log:"
-	puts request.host
-	puts params
-	puts request.path
-end
+# before '/*' do 
+# 	puts "Route log:"
+# 	puts request.host
+# 	puts params
+# 	puts request.path
+# end
 
-after '/*' do 
-	puts "Completed Route Log:"
-	puts reponse.body
-	puts response.status
-end
+# after '/*' do 
+# 	puts "Completed Route Log:"
+# 	puts reponse.body
+# 	puts response.status
+# end

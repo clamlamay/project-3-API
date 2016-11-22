@@ -21,12 +21,11 @@ angular.module('karaokeApp')
 
   $scope.addSong = function(title, artist, lyrics) {
     $http({
-      url: 'http://localhost:9292/songs',
+      url: 'http://localhost:9292/songs/',
       method: 'POST',
       params: { title: title, artist: artist, lyrics: lyrics }
     }).success(function(results) {
       $scope.message = $scope.messages[1];
-      //$scope.title = '';
     }).error(function(err) {
       console.log('Ajax request go down da hole');
       console.log(err);

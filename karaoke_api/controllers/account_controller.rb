@@ -1,9 +1,12 @@
 class AccountsController < ApplicationController
 
+
 	@username = ''
 
 	get '/' do
 		# show login/registration page eventually
+		# p session
+		binding.pry 
 		Account.all.to_json
 	end
 
@@ -20,10 +23,18 @@ class AccountsController < ApplicationController
 		# @model.password_salt = password_salt
 		@model.save
 
+
 		@account_message = "You have successfully registered and you are logged in :)"
-		session[:user] = @username
-		session[:userid] = @model.id
-		p session
+		session[:userobject] = @model
+
+		p '#################################################'
+		#p session[:session_id]
+		#p session["session_id"]
+		#p session
+
+		binding.pry
+
+
 		@model.to_json
 	end
 
@@ -36,10 +47,10 @@ class AccountsController < ApplicationController
 			redirect '/register'
 		end
 
-		session[:user] = @username
+		session[:burrito] = 'jklfjgldfkjglkdfjgfdlkjgdflkjgdflkjgfdlkjgdflk'
 		# @id = params[:id]
 		# session[:userid] = @id
-		p session
+		#p session
 		{ :message => 'Started session.'}.to_json
 		# redirect account page
 

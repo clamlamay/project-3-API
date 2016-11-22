@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="karaokeApp">
   <head>
+    <meta charset="utf-8">
     <title>Karaoke API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <script src="/javascripts/angular.js"></script>
     <script src="/javascripts/angular-route.js"></script>
     <script src="/javascripts/app.js"></script>
@@ -12,23 +15,58 @@
     <script src="/javascripts/app.ScoreCtrl.js"></script>
     <script src="/javascripts/app.HomeCtrl.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href='/stylesheets/normalize.css'>
+    <link rel="stylesheet" href='/stylesheets/skeleton.css'>
   </head>
+  
   <body>
     
   <header>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/user">Users</a></li>
-      <li><a href="/add">Add Song</a></li>
-      <li><a href="/songs">Song List</a></li>
-      <li><a href="/scores">View the Scores</a></li>
-    </ul>
+    <div class="container">
+    <div class="three columns">
+      <div class="logo">
+        <a href="#"><img src="/images/logo.png" alt="Karaoke" /></a>
+      </div>
+    </div>
+
+    <div class="nine columns">
+    <nav>
+      <ul>
+        <li><a href="/">Login</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/user">Users</a></li>
+        <li><a href="/add">Add Song</a></li>
+        <li><a href="/songs">Song List</a></li>
+        <li><a href="/scores">View the Scores</a></li>
+      </ul>
+    </nav>
+    </div>
+
     <hr>
   </header>
-    
-  <h1>Index View</h1>
-  <div ng-view></div>
 
- 
+    <!-- <h1>Karaoke Application</h1>
+    <p> Peer-to-peer Karaoke Game</p> -->
+
+    <div class="container">
+      <div class="seven columns">
+        <div ng-view></div>
+      </div>
+    </div>
+
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/user">Users</a></li>
+        <li><a href="/add">Add Song</a></li>
+        <li><a href="/songs">Song List</a></li>
+        <li><a href="/scores">View the Scores</a></li>
+      </ul>
+    </nav>
+    <img src="images/small_logo.png" />
+    <p>&copy; 2016. All Rights Reserved.</p>
+  </footer>
+
   </body>
 </html>

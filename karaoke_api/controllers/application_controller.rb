@@ -1,14 +1,15 @@
 class ApplicationController < Sinatra::Base
 
-	@account_message = ''
-	@username = ''
-
 	require 'bundler'
-	Bundler.require()
-	require 'sinatra'
 	require 'sinatra/cross_origin'
-	require 'bcrypt'
-	require 'pry'
+
+	Bundler.require()
+
+	#register Sinatra::CrossOrigin
+
+	
+	# @account_message = ''
+	# @username = ''
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'mysql2',
@@ -17,22 +18,22 @@ class ApplicationController < Sinatra::Base
 
 	# set :views, File.dirname(__FILE__) + '/views'
 	# set :public_folder, File.File.dirname(__FILE__) + '/public'
-	enable :sessions, :logging
+	#  set :session_secret, "hi"
+	# enable :sessions, :logging
+	enable :sessions
 
-	register Sinatra::CrossOrigin
+	# options "*" do
+	# 	response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
+	#     response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+	#     200
+	# end
 
-	set :allow_origin, :any
-	set :allow_methods, [:get, :post, :patch, :delete]
+	# configure do
+	#   enable :cross_origin
+	# end
 
-	options "*" do
-		response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
-	    response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
-	    200
-	end
-
-	configure do
-	  enable :cross_origin
-	end
+	#set :session_secret, "My session secret"
+   
 
 	def does_user_exist?(username)
 		user = Account.find_by(:username => username.to_s)
