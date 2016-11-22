@@ -15,6 +15,9 @@ ActiveRecord::Schema.define(version: 20161117162951) do
   create_table "accounts", force: :cascade do |t|
     t.string "username"
     t.string "password"
+    t.string "api_key"
+    t.string "password_hash"
+    t.string "password_salt"
   end
 
   create_table "points", force: :cascade do |t|

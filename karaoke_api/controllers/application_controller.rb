@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
 	# )
 	ActiveRecord::Base.establish_connection(
 		:adapter  => 'sqlite3',
-  	:database => 'development.db'
+  	:database => 'karaoke.db'
 	)
 
 	# set :views, File.dirname(__FILE__) + '/views'
@@ -31,10 +31,6 @@ class ApplicationController < Sinatra::Base
 	    200
 	end
 
-	configure do
-	  enable :cross_origin
-	end
-
 	def does_user_exist?(username)
 		user = Account.find_by(:username => username.to_s)
 		if user
@@ -45,6 +41,8 @@ class ApplicationController < Sinatra::Base
 	end
 
 	def is_not_authenticated
+		p 'Testing for auth is_not_authenticated'
+		p session
 		session[:user].nil?	#bool
 	end
 

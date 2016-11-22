@@ -1,6 +1,8 @@
 class SongsController < ApplicationController
 
 	get '/' do
+		p 'Session:'
+		p session
 		Song.all.to_json
 	end
 
