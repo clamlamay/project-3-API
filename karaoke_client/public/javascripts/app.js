@@ -1,7 +1,6 @@
 console.log('Linked');
 
-angular.module('karaokeApp', [ 'ngRoute'
-]).config([
+angular.module('karaokeApp', ['ngRoute']).config([
   '$locationProvider',
   '$routeProvider',
   function($locationProvider, $routeProvider) {

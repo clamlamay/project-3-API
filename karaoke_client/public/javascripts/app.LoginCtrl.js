@@ -1,5 +1,5 @@
 angular.module('karaokeApp')
-  .controller('LoginCtrl', function($scope, $http, $location) {
+  .controller('LoginCtrl', function($scope, $http, $location, $rootScope) {
 
   // $scope.messages = 'Please login or register.';
 
@@ -9,6 +9,11 @@ angular.module('karaokeApp')
       method: 'POST',
       params: { username: username, password: password }
     }).success(function(results) {
+      
+      console.log(results);
+
+      // $rootScope.key = results.user_id;
+      console.log($rootScope.key);
       $scope.messages = 'Welcome back, ' + username + '!' ;
       console.log('This is working');
     }).error(function(err) {

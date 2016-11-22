@@ -1,8 +1,7 @@
-<h1>Please login or register.<h1>
 
 <h2>Login</h2>
-<form ng-submit="loginUser(username, password)">
+<form>
     <input type="text" ng-model="username" placeholder="Username">
     <input type="password" ng-model="password" placeholder="Password">
-    <input type="submit">
+    <input type="submit" value='save' ng-click="loginUser(username, password)">
 </form>

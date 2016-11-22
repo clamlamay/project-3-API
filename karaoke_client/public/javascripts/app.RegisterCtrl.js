@@ -1,7 +1,7 @@
 angular.module('karaokeApp')
-  .controller('RegisterCtrl', function($scope, $http, $location) {
+  .controller('RegisterCtrl', function($scope, $http, $location, $rootScope) {
 
-  // $scope.messages = 'Please login or register.';
+  $scope.messages = 'Please login or register.';
 
   $scope.addUser = function(username, password) {
     $http({
@@ -9,7 +9,8 @@ angular.module('karaokeApp')
       method: 'POST',
       params: { username: username, password: password }
     }).success(function(results) {
-      console.log(results)
+      console.log(results.id);
+      $rootScope.id = results.id;
       $scope.messages = 'Thanks for joining, ' + username + '!' ;
     }).error(function(err) {
       console.log('Ajax request failed.');
