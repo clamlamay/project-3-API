@@ -3,6 +3,8 @@ class AccountsController < ApplicationController
 	@username = ''
 
 	get '/' do
+		p 'Session:'
+		p session
 		# show login/registration page eventually
 		Account.all.to_json
 	end
@@ -10,24 +12,27 @@ class AccountsController < ApplicationController
 	post '/register' do
 		@username = params[:username]
 		@password = params[:password]
-		# password_salt = BCrypt::Engine.generate_salt
-		# password_hash = BCrypt::Engine.hash_secret(@password, password_salt)
+		password_salt = BCrypt::Engine.generate_salt
+		password_hash = BCrypt::Engine.hash_secret(@password, password_salt)
 
 		@model = Account.new
+		binding.pry
 		@model.username = @username
 		@model.password = @password 
-		# @model.password_hash = password_hash
-		# @model.password_salt = password_salt
+		@model.password_hash = password_hash
+		@model.password_salt = password_salt
 		@model.save
 
 		@account_message = "You have successfully registered and you are logged in :)"
 		session[:user] = @username
-		session[:userid] = @model.id
+		p 'session:'
 		p session
 		@model.to_json
 	end
 
 	post '/login' do
+		p 'session:'
+		puts session
 		@username = params[:username]
 		@password = params[:password]
 
@@ -39,6 +44,7 @@ class AccountsController < ApplicationController
 		session[:user] = @username
 		# @id = params[:id]
 		# session[:userid] = @id
+		p 'session:'
 		p session
 		{ :message => 'Started session.'}.to_json
 		# redirect account page
@@ -59,6 +65,8 @@ class AccountsController < ApplicationController
 	end
 
 	get '/logout' do
+		p 'session:'
+		p session
 		session[:user] = nil
 		redirect '/'
 	end
