@@ -1,19 +1,7 @@
 angular.module('karaokeApp')
 .controller('UserCtrl', function($scope, $http) {
 
-  // $scope.users = [];
-
-  // $scope.populateList = function() {
-  //   $http.get('http://localhost:9292/users').success(function (data) {
-  //     $scope.users = data;
-  //   }).error(function(err) {
-  //     console.log('Fetch failed; it didn\'t happen');
-  //     console.log(err);
-  //   });
-  // }
-  
-  // $scope.populateList();
-
+  // Only show $rootScope.id's songs :)
 
   $scope.songs = [];
 

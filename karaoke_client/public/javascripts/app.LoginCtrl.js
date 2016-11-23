@@ -10,7 +10,8 @@ angular.module('karaokeApp')
       params: { username: username, password: password }
     }).success(function(results) {
       console.log(results);
-      console.log($rootScope.api_key);
+      console.log(results[0].id);
+      $rootScope.id = results[0].id;
       $scope.messages = 'Welcome back, ' + username + '!' ;
       console.log('Post success.');
     }).error(function(err) {
