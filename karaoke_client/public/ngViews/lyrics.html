@@ -2,6 +2,11 @@
 
 <section>
     <article>
-	    <p>"{{lyrics}}"</p>
+	    <form ng-submit="guessLyric(guess)">
+		    <p>"{{first}} <input type="text" ng-model="guess" placeholder=""> {{second}}"</p>
+		    <input type="submit" value="Guess!">
+		</form>
     </article>
+
 </section>
+
