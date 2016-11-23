@@ -1,13 +1,17 @@
 angular.module('karaokeApp')
-.controller('UserCtrl', function($scope, $http) {
-
-  // Only show $rootScope.id's songs :)
+.controller('UserCtrl', function($scope, $http, $rootScope) {
 
   $scope.songs = [];
 
   $scope.fetch = function() {
     $http.get('http://localhost:9292/songs').success(function (results) {
-      $scope.songs = results;
+      console.log("This is the current user's id:");
+      console.log($rootScope.id)
+      for (var i = 0; i < results.length; i++) {
+          if ( results[i].account_id === $rootScope.id ) {
+            $scope.songs.push(results[i]);
+          };
+      };
     }).error(function(err) {
       console.log('Fetch failed; it didn\'t happen');
       console.log(err);
