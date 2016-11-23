@@ -12,6 +12,8 @@ angular.module('karaokeApp')
       console.log(results);
       console.log(results[0].id);
       $rootScope.id = results[0].id;
+      $rootScope.user = results[0].username;
+      console.log("Current user: " + $rootScope.user);
       $scope.messages = 'Welcome back, ' + username + '!' ;
       console.log('Post success.');
     }).error(function(err) {

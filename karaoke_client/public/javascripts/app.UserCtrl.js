@@ -2,6 +2,8 @@ angular.module('karaokeApp')
 .controller('UserCtrl', function($scope, $http, $rootScope) {
 
   $scope.songs = [];
+  $scope.points = '';
+  $scope.username = $rootScope.user;
 
   $scope.fetch = function() {
     $http.get('http://localhost:9292/songs').success(function (results) {

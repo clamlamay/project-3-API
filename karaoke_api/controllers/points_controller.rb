@@ -12,9 +12,11 @@ class PointsController < ApplicationController
 
 	post '/' do
 		@score = params[:score]
+		@account_id = params[:account_id]
 
 		@model = Point.new
 		@model.score = @score
+		@model.account_id = @account_id
 		@model.save
 
 		@model.to_json
