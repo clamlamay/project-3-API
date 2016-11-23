@@ -421,13 +421,19 @@ there.
 /* Custom Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   
-  /* Header */
-// body > header {
+ // body > header {
 //   background: url('/images/header.jpg') top center no-repeat;
 //   background-size: cover;
 //   min-height: 680px;
 //   width: 100%;
 // }
+
+// body {
+//   background: url('/images/header.jpeg') top center no-repeat;
+// // //   background-size: cover;
+// // //   min-height: 680px;
+// // //   width: 100%;
+// // }
 
  .logo {
    margin-top: 1em;
@@ -442,3 +448,6 @@ header nav ul li {
   display:inline-block;
 }
 
+li {
+  color: white;
+}

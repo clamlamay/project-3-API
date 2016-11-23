@@ -1,16 +1,37 @@
-<h1>The Karaoke App</h1>
+<h1>Playlist</h1>
 
-<section>
+<!-- <section>
     <article ng-repeat="song in songs">
         <button ng-click="showLyric(song.id)">
 	        <h3>{{song.title}}</h3>
 	        <p>by <em>{{song.artist}}</em></p>
-	        <!-- <p>{{song.id}}</p> -->
-	        <p>"{{song.account_id}}"</p>
+	       <!  <p>{{song.id}}</p> -->
+	  <!--       <p>{{song.account_id}}</p>
 	    </button>
     </article>
 </section>
 
 <br>
+<button ng-click="changeRoute()">Add Songs</button> --> 
+
+<table class="u-full-width">
+  <tbody>
+  	<tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Account_ID</th>
+	  <th>&nbsp;</th>     
+    </tr>
+    <tr ng-repeat="song in songs">
+      <td>{{song.title}}</td>
+      <td>{{song.artist}}</td>
+      <td>{{song.account_id}}</td>
+      <td> <button ng-click="showLyric(song.id)">PLAY</button></td>
+    </tr>
+  </tbody>
+</table>
+
 <button ng-click="changeRoute()">Add Songs</button>
+
+
 

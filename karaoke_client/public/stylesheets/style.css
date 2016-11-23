@@ -1,8 +1,28 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+// body > header {
+//   background: url('/images/header.jpg') top center no-repeat;
+//   background-size: cover;
+//   min-height: 680px;
+//   width: 100%;
+// }
 
-a {
-  color: #00B7FF; }
+body {
+	background: url('/images/header.jpeg') top center no-repeat;
+// //   background-size: cover;
+// //   min-height: 680px;
+// //   width: 100%;
+// }
+
+ .logo {
+   margin-top: 1em;
+ }
+
+header nav {
+  text-align:right;
+  margin-top:2em;
+}
+
+header nav ul li {
+  display:inline-block;
+}
 
 /*# sourceMappingURL=style.css.map */
