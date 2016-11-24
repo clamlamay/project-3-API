@@ -23,7 +23,7 @@ class PointsController < ApplicationController
 	end
 
 	patch '/:id' do
-		@id = params[:id]
+		@id = params[:account_id]
 		@model = Point.find(@id)
 		@score = params[:score]
 		@model.score = @score

@@ -9,13 +9,22 @@ angular.module('karaokeApp')
       method: 'POST',
       params: { username: username, password: password }
     }).success(function(results) {
-      console.log(results);
       console.log(results[0].id);
       $rootScope.id = results[0].id;
       $rootScope.user = results[0].username;
       console.log("Current user: " + $rootScope.user);
       $scope.messages = 'Welcome back, ' + username + '!' ;
       console.log('Post success.');
+
+      $http.get('http://localhost:9292/points/' + $rootScope.id).success(function (results) {
+        console.log("User's score: " + results.score);
+        $rootScope.points = results.score;
+      }).error(function(err) {
+        console.log('Fetch failed; it didn\'t happen');
+        console.log(err);
+      });
+
+
     }).error(function(err) {
     	$scope.messages = 'Please try again.';
     	console.log('Ajax request failed.');

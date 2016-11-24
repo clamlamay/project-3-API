@@ -1,7 +1,8 @@
 angular.module('karaokeApp')
-  .controller('LyricsCtrl', function($scope, $http, $location, $routeParams) {
+  .controller('LyricsCtrl', function($scope, $http, $location, $routeParams, $rootScope) {
 
     var currentId = $routeParams.id;
+    console.log($rootScope.id);
 
     $scope.longestWord = "";
     $scope.lyricsGame = "";
@@ -56,9 +57,36 @@ angular.module('karaokeApp')
       console.log("This is their guess: " + guess);
       var answer = $scope.longestWord;
       if ( guess.toLowerCase() === answer.toLowerCase() ){
-          console.log("You're so smart :) ")
+          console.log("You're so smart :) ");
+          $rootScope.points++;
+          console.log($rootScope.points);
+          
+          $http({
+            url: 'http://localhost:9292/points/' + $rootScope.id,
+            method: 'PATCH',
+            params: { score: $rootScope.points }
+          }).success(function(results) {
+            console.log("This is the user's new score: " + results.score);
+          }).error(function(err) {
+            console.log('Score updated Ajax request failed.');
+            console.log(err);
+          });
+
       } else {
-          console.log("Boo, you suk.")
+          console.log("Boo, you suk.");
+          $rootScope.points--;
+          console.log($rootScope.points);
+          
+          $http({
+            url: 'http://localhost:9292/points/' + $rootScope.id,
+            method: 'PATCH',
+            params: { score: $rootScope.points }
+          }).success(function(results) {
+            console.log("This is the user's new score: " + results.score);
+          }).error(function(err) {
+            console.log('Ajax request failed.');
+            console.log(err);
+          });
       }
     };
 

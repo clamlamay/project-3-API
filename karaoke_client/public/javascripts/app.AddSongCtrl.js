@@ -30,7 +30,7 @@ angular.module('karaokeApp')
       console.log($rootScope.id);
       $scope.message = $scope.messages[1];
     }).error(function(err) {
-      console.log('Ajax request go down da hole');
+      console.log('Ajax request failed.');
       console.log(err);
     });
   };

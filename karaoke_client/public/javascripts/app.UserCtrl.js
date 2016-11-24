@@ -17,8 +17,16 @@ angular.module('karaokeApp')
     }).error(function(err) {
       console.log('Fetch failed; it didn\'t happen');
       console.log(err);
-      });
-    };
+    });
+
+    $http.get('http://localhost:9292/points/' + $rootScope.id).success(function (results) {
+      console.log("User's score: " + results.score);
+      $scope.points = results.score;
+    }).error(function(err) {
+      console.log('Fetch failed; it didn\'t happen');
+      console.log(err);
+    });
+  };
 
   $scope.fetch();
 

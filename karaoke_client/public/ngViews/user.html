@@ -1,11 +1,11 @@
+<h2>{{user}}'s points: {{points}}</h2>
+
 <h2>Edit Songs</h2>
 <section>
 	<article ng-repeat="song in songs">
         <h3>{{song.title}}</h3>
         <p><em>by </em>{{song.artist}}</p>
         <p>"{{song.lyrics}}"</p>
-        <!-- <p>Song.Id : {{song.id}}</p>
-        <p>Song.account_id : {{song.account_id}}</p> -->
         <button data-id="{{song.id}}"
         		ng-click="removeSong(song)">Remove Song</button>
     </article>

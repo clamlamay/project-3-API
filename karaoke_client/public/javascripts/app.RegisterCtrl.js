@@ -22,6 +22,7 @@ angular.module('karaokeApp')
           method: 'POST',
           params: { score: 0, account_id: $rootScope.id }
         }).success(function(results) {
+          $rootScope.points = results.score;
           console.log(results.account_id);
           console.log(results.score);
         }).error(function(err) {
