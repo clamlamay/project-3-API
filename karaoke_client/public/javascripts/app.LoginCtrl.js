@@ -1,7 +1,16 @@
 angular.module('karaokeApp')
   .controller('LoginCtrl', function($scope, $http, $location, $rootScope) {
 
-  // $scope.messages = 'Please login or register.';
+  $scope.retrievePoints = function(){
+    $http.get('http://localhost:9292/points/' + $rootScope.id)
+        .success(function (results) {
+        console.log("User's score: " + results.score);
+        $rootScope.points = results.score;
+      }).error(function(err) {
+        console.log('Fetch failed; it didn\'t happen');
+        console.log(err);
+      });
+  };
 
   $scope.loginUser = function(username, password) {
     $http({
@@ -15,26 +24,16 @@ angular.module('karaokeApp')
       console.log("Current user: " + $rootScope.user);
       $scope.messages = 'Welcome back, ' + username + '!' ;
       console.log('Post success.');
-
-      $http.get('http://localhost:9292/points/' + $rootScope.id).success(function (results) {
-        console.log("User's score: " + results.score);
-        $rootScope.points = results.score;
-      }).error(function(err) {
-        console.log('Fetch failed; it didn\'t happen');
-        console.log(err);
-      });
-
-
+      $scope.retrievePoints();
     }).error(function(err) {
     	$scope.messages = 'Please try again.';
     	console.log('Ajax request failed.');
     	console.log(err);
     });
-  }
-
-   $scope.changeRoute = function() {
-    $location.path('/');
   };
 
-
+  $scope.changeRoute = function() {
+    $location.path('/');
+  };
+  
 });

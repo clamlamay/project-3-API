@@ -3,6 +3,21 @@ angular.module('karaokeApp')
 
   $scope.messages = 'Please login or register.';
 
+  $scope.addPointsAccount = function() {
+    $http({
+        url: 'http://localhost:9292/points/',
+        method: 'POST',
+        params: { score: 0, account_id: $rootScope.id }
+      }).success(function(results) {
+        $rootScope.points = results.score;
+        console.log(results.account_id);
+        console.log(results.score);
+      }).error(function(err) {
+        console.log('Ajax request failed.');
+        console.log(err);
+      });
+  };
+
   $scope.addUser = function(username, password) {
     $http({
       url: 'http://localhost:9292/users/register',
@@ -16,20 +31,7 @@ angular.module('karaokeApp')
       $rootScope.user = results.username;
       console.log("Current user: " + $rootScope.user);
       $scope.messages = 'Thanks for joining, ' + username + '!' ;
-
-      $http({
-          url: 'http://localhost:9292/points/',
-          method: 'POST',
-          params: { score: 0, account_id: $rootScope.id }
-        }).success(function(results) {
-          $rootScope.points = results.score;
-          console.log(results.account_id);
-          console.log(results.score);
-        }).error(function(err) {
-          console.log('Ajax request failed.');
-          console.log(err);
-        });
-      
+      $scope.addPointsAccount();
     }).error(function(err) {
       console.log('Ajax request failed.');
       console.log(err);
