@@ -25,9 +25,8 @@ angular.module('karaokeApp')
           };
         };
 
-        // Removes period or comma from word
-        missingWord = missingWord.replace('.', '');
-        missingWord = missingWord.replace(',', '');
+        // Removes period, comma or question mark from word
+        missingWord = missingWord.replace(/[.,?]/g, '');
         $scope.longestWord = missingWord
 
         console.log(lyrics);
