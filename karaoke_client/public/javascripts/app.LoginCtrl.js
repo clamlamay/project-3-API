@@ -23,6 +23,7 @@ angular.module('karaokeApp')
       $rootScope.user = results[0].username;
       console.log("Current user: " + $rootScope.user);
       $scope.messages = 'Welcome back, ' + username + '!' ;
+      $location.path('/add')
       console.log('Post success.');
       $scope.retrievePoints();
     }).error(function(err) {
@@ -35,5 +36,9 @@ angular.module('karaokeApp')
   $scope.changeRoute = function() {
     $location.path('/');
   };
-  
+
+
 });
+
+
+

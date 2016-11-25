@@ -2,6 +2,15 @@
 
 {{message}}
 
+
+
+ <div ng-model="username" ng-init="username=user">
+        Person's name is: {{username}} <br />
+  
+    </div>
+
+
+
 <form ng-submit="addSong(title, artist, lyrics)">
     <input type="text" ng-model="title" placeholder="Title">
     <input type="text" ng-model="artist" placeholder="Artist">
@@ -10,3 +19,7 @@
 </form>
 
 <button ng-click="changeRoute()">View Songs</button>
+
+
+
+

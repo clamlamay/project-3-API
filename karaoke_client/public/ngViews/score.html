@@ -2,7 +2,7 @@
 <h2>Top Karaokers</h2>
 
 <section>
-    <article ng-repeat="score in scores">
+    <article ng-repeat="score in scores | orderBy : 'scores'">
   
         <p>{{score.account_id}} has a score of {{score.score}}</p>
         

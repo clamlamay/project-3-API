@@ -2,12 +2,17 @@
 <html ng-app="karaokeApp">
   <head>
     <meta charset="utf-8">
-    <title>Karaoke API</title>
+    <title>Karlyoke</title>
+    
+      <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
- -->    <script src="/javascripts/angular.js"></script>
+    
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="/javascripts/angular.js"></script>
     <script src="/javascripts/angular-route.js"></script>
-   <!--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-cookie/4.0.0/angular-cookie.js"></script> -->
     <script src="/javascripts/app.js"></script>
     <script src="/javascripts/app.UserCtrl.js"></script>
     <script src="/javascripts/app.AddSongCtrl.js"></script>
@@ -16,57 +21,55 @@
     <script src="/javascripts/app.ScoreCtrl.js"></script>
     <script src="/javascripts/app.LoginCtrl.js"></script>
     <script src="/javascripts/app.RegisterCtrl.js"></script>
-<!--     <link rel='stylesheet' href='/stylesheets/style.css' />
- -->    <link rel="stylesheet" href='/stylesheets/normalize.css'>
-    <link rel="stylesheet" href='/stylesheets/skeleton.css'>
+
+      <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/stylesheets/skeleton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
   </head>
   
   <body>
-    
-  <header>
-    <div class="container">
-    <div class="three columns">
-      <div class="logo">
-        <a href="#"><img src="/images/logo.png" alt="Karaoke" /></a>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <!-- Header
+  ================================================== -->
+  <header class="animated fadeInDown">
+      
+      <div class="container">
+        <div class="three columns">
+          <div class="logo">
+            <a href="/"><img src="images/logo.png" alt="Karlyoke" /></a>
+          </div>
+        </div>
+
+        <div>
+        <nav>
+          <ul>
+            <li><a href="/">Log in</a></li>
+            <li><a class="btn" href="/register">Sign Up Now</a></li>
+          </ul>
+        </nav>
+        </div>
       </div>
-    </div>
 
-    <div class="nine columns">
-    <nav>
-      <ul>
-        <li><a href="/">Login</a></li>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/user">Users</a></li>
-        <li><a href="/add">Add Song</a></li>
-        <li><a href="/songs">Song List</a></li>
-        <li><a href="/scores">View the Scores</a></li>
-      </ul>
-    </nav>
-    </div>
+      <div class="container">
+          <div ng-view></div>
+      </div>
 
-    <hr>
+            <a href="/">Login</a>
+            <a class="btn" href="/register">Register</a>
+            <a href="/user">Users</a>
+            <a href="/add">Add Song</a>
+            <a href="/songs">Song List</a>
+            <a href="/scores">View the Scores</a>       
   </header>
 
-    <!-- <h1>Karaoke Application</h1>
-    <p> Peer-to-peer Karaoke Game</p> -->
-
-    <div class="container">
-        <div ng-view></div>
-    </div>
-
-  <footer>
-    <nav>
-     <!--  <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/user">Users</a></li>
-        <li><a href="/add">Add Song</a></li>
-        <li><a href="/songs">Song List</a></li>
-        <li><a href="/scores">View the Scores</a></li>
-      </ul>
-    </nav>
-    <img src="images/small_logo.png" /> -->
-    <p>&copy; 2016. All Rights Reserved.</p>
-  </footer>
-
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   </body>
 </html>
