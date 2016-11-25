@@ -18,14 +18,20 @@ angular.module('karaokeApp')
       method: 'POST',
       params: { username: username, password: password }
     }).success(function(results) {
-      console.log(results[0].id);
-      $rootScope.id = results[0].id;
-      $rootScope.user = results[0].username;
-      console.log("Current user: " + $rootScope.user);
-      $scope.messages = 'Welcome back, ' + username + '!' ;
-      $location.path('/add')
+
+      if ( $scope.username === results[0].username && $scope.password === results[0].password ) {
+        $rootScope.id = results[0].id;
+        $rootScope.user = results[0].username;
+        console.log("Current user: " + $rootScope.user);
+        $scope.messages = 'Welcome back, ' + username + '!' ;
+        $location.path('/add')
+        $scope.retrievePoints();
+      } else if ( $scope.password !== results[0].password ) {
+        $scope.messages = 'Incorrect password, try again.' ;
+      }
+
       console.log('Post success.');
-      $scope.retrievePoints();
+
     }).error(function(err) {
     	$scope.messages = 'Please try again.';
     	console.log('Ajax request failed.');

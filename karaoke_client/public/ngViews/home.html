@@ -1,7 +1,6 @@
 
 <div class="container">
 	<div class="seven columns headertext animated fadeInDown">
-	<h1>{{messages}}</h1>
 	<h1>Karlyoke</h1>
 	<p>Karaoke game where peers can input a chorus from their favorite songs. Play for points to fill in the missing lyric. Login now.</p>
 	<form ng-click="loginUser(username, password)">
@@ -9,6 +8,7 @@
 	    <input type="password" ng-model="password" placeholder="Password">
 	    <input type="submit" value="Submit">
 	</form>
+	<h5 style="color:red">{{messages}}</h5>
 	</div>
 </div>
 
