@@ -8,6 +8,10 @@ angular.module('karaokeApp')
     $scope.first = "";
     $scope.second = "";
 
+    $scope.yay = true;
+    $scope.nay = true;
+    $scope.game = false;
+
     $scope.fetch = function() {
       console.log(currentId)
       $http.get('http://localhost:9292/songs/' + currentId).success(function (results) {
@@ -61,17 +65,24 @@ angular.module('karaokeApp')
         });
     };
 
+    $scope.changeRoute = function(path) {
+      $location.path('/' + path + '' );
+    };
+
     $scope.guessLyric = function(guess) {
       console.log("This is their guess: " + guess);
       var answer = $scope.longestWord;
+      $scope.game = true;
       if ( guess.toLowerCase() === answer.toLowerCase() ){
           console.log("You're so smart :) ");
           $rootScope.points++;
           $scope.updateScore();
+          $scope.yay = false;
       } else {
           console.log("Boo, you suk.");
           $rootScope.points--;
           $scope.updateScore();
+          $scope.nay = false;
       };
     };
 

@@ -13,6 +13,7 @@ angular.module('karaokeApp')
   };
 
   $scope.loginUser = function(username, password) {
+
     $http({
       url: 'http://localhost:9292/users/login',
       method: 'POST',
@@ -37,6 +38,7 @@ angular.module('karaokeApp')
     	console.log('Ajax request failed.');
     	console.log(err);
     });
+
   };
 
   $scope.changeRoute = function() {
