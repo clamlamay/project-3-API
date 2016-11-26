@@ -34,19 +34,10 @@ angular.module('karaokeApp', ['ngRoute']).config([
       .when('/songs', {
         templateUrl: 'ngViews/songs.html',
         controller: 'SongsCtrl'
-
       })
       .when('/:id', {
         templateUrl: 'ngViews/lyrics.html',
         controller: 'LyricsCtrl'
-      })
-      .when('/nay', {
-        templateUrl: 'ngViews/nay.html',
-        controller: 'NayCtrl'
-      })
-      .when('/yay', {
-        templateUrl: 'ngViews/yay.html',
-        controller: 'YayCtrl'
       });
 
 

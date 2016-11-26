@@ -2,8 +2,14 @@
 	<div class="seven columns headertext animated fadeInDown">
 	<h1>Lyric Page</h1>
 	<br>
+	<div ng-hide="yay">
+		<h1>You're so smart :)</h1>
+	</div>
+	<div ng-hide="nay">
+		<h1>Boo, you whore.</h1>
+	</div>
 	<section>
-	    <article>
+	    <article ng-hide="game">
 		    <form ng-submit="guessLyric(guess)">
 			    <p class="line-1 anim-typewriter">"{{first}} <input type="text" ng-model="guess" placeholder=""> {{second}}"</p>
 			    <input type="submit" value="Guess!">
