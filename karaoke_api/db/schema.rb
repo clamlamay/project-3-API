@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20161117162951) do
 
   create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "score"
-    t.integer "account_id"
+    t.string  "username"
   end
 
   create_table "songs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -2,9 +2,9 @@
 	<div class="seven columns headertext animated fadeInDown">
 	<h1>Top Karlyokers</h1>
 	<section>
-<!--     <article ng-repeat="score in scores | orderBy : 'scores'">
- -->    <article ng-repeat="score in scores">  
-        <p>{{score.account_id}} has a score of {{score.score}}</p>
+<!--     <article ng-repeat="score in scores | orderBy : 'scores'">  -->    
+		<article ng-repeat="score in scores">  
+        	<p>{{score.username}} has a score of {{score.score}}</p>
     	</article>
 	</section>
 	</div>

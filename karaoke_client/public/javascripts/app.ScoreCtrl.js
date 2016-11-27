@@ -10,6 +10,7 @@ angular.module('karaokeApp')
       highToLow.sort(function(a, b){
         return b.score-a.score
       })
+      console.log($scope.scores)
     }).error(function(err) {
       console.log('Fetch failed; it didn\'t happen');
       console.log(err);
