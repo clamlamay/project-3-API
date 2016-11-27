@@ -1,6 +1,8 @@
 angular.module('karaokeApp')
   .controller('LoginCtrl', function($scope, $http, $location, $rootScope) {
 
+  $rootScope.apiKey = null;
+
   $scope.retrievePoints = function(){
     $http.get('http://localhost:9292/points/' + $rootScope.id)
         .success(function (results) {
@@ -19,7 +21,7 @@ angular.module('karaokeApp')
       method: 'POST',
       params: { username: username, password: password }
     }).success(function(results) {
-
+      $rootScope.apiKey = results[0].api_key;
       if ( $scope.username === results[0].username && $scope.password === results[0].password ) {
         $rootScope.id = results[0].id;
         $rootScope.user = results[0].username;
