@@ -2,6 +2,8 @@ angular.module('karaokeApp')
   .controller('LoginCtrl', function($scope, $http, $location, $rootScope) {
 
   $rootScope.apiKey = null;
+  $rootScope.login = true;
+  $rootScope.logout = false;
 
   $scope.retrievePoints = function(){
     $http.get('http://localhost:9292/points/' + $rootScope.id)

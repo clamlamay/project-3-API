@@ -1,6 +1,9 @@
 angular.module('karaokeApp')
 .controller('AddSongCtrl', function($scope, $http, $location, $rootScope) {
 
+  $rootScope.login = false;
+  $rootScope.logout = true;
+
   $scope.messages = [
     'Add your song! Please fill out all fields.',
     'Thanks for your lyrics!'

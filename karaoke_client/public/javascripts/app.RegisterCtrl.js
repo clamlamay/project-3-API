@@ -2,6 +2,8 @@ angular.module('karaokeApp')
   .controller('RegisterCtrl', function($scope, $http, $location, $rootScope) {
 
   $scope.messages = 'Register';
+  $rootScope.login = true;
+  $rootScope.logout = false;
 
   $scope.addPointsAccount = function() {
     $http({
