@@ -15,7 +15,6 @@ angular.module('karaokeApp')
   };
 
   $scope.loginUser = function(username, password) {
-
     $http({
       url: 'http://localhost:9292/users/login',
       method: 'POST',
@@ -27,20 +26,17 @@ angular.module('karaokeApp')
         $rootScope.user = results[0].username;
         console.log("Current user: " + $rootScope.user);
         // $scope.messages = 'Welcome back, ' + username + '!' ;
-        $location.path('/add');
         $scope.retrievePoints();
+        $location.path('/add');
       } else if ( $scope.password !== results[0].password ) {
         $scope.messages = 'Incorrect password, try again.' ;
       }
-
       console.log('Post success.');
-
     }).error(function(err) {
     	$scope.messages = 'Please try again.';
     	console.log('Ajax request failed.');
     	console.log(err);
     });
-
   };
 
   $scope.changeRoute = function() {

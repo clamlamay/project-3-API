@@ -30,9 +30,9 @@ angular.module('karaokeApp')
       $rootScope.id = results.id;
       $rootScope.user = results.username;
       console.log("Current user: " + $rootScope.user);
-      $location.path('/add');
       // $scope.messages = 'Thanks for joining, ' + username + '!' ;
       $scope.addPointsAccount();
+      $location.path('/add');
     }).error(function(err) {
       console.log('Ajax request failed.');
       console.log(err);

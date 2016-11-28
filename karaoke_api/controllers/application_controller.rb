@@ -13,10 +13,6 @@ class ApplicationController < Sinatra::Base
 		:adapter => 'mysql2',
 		:database => 'Project_3'
 	)
-	# ActiveRecord::Base.establish_connection(
-	# 	:adapter  => 'sqlite3',
- #  		:database => 'karaoke.db'
-	# )
 
 	configure do
 	  	enable :cross_origin
@@ -27,16 +23,12 @@ class ApplicationController < Sinatra::Base
 		puts request.host
 		puts params
 		puts request.path
-		# puts 'Session:'
-		# p session
 	end
 
 	after '/*' do 
 		puts "Completed Route Log:"
 		puts response.body
 		puts response.status
-		# puts 'Session:'
-		# p session
 	end
 
 	# set :views, File.dirname(__FILE__) + '/views'
@@ -61,12 +53,6 @@ class ApplicationController < Sinatra::Base
 			return false
 		end
 	end
-
-	# def is_not_authenticated
-	# 	p 'Testing for auth is_not_authenticated'
-	# 	p session
-	# 	session[:user].nil?	#bool
-	# end
 
 	get '/' do
 	    {:message => 'Home page not designed yet.'}.to_json

@@ -17,7 +17,6 @@ class AccountsController < ApplicationController
 		password_salt = BCrypt::Engine.generate_salt
 		password_hash = BCrypt::Engine.hash_secret(@password, password_salt)
 	
-
 		@model = Account.new
 		@model.username = @username
 		@model.password = @password
@@ -64,12 +63,12 @@ class AccountsController < ApplicationController
 		redirect '/'
 	end
 
-	# delete '/:id' do
-	# 	@id = params[:id]
-	# 	@model = Account.find(@id)
-	# 	@model.destroy
+	delete '/:id' do
+		@id = params[:id]
+		@model = Account.find(@id)
+		@model.destroy
 
-	# 	{ :message => 'User has been deleted.'}.to_json
-	# end
+		{ :message => 'User has been deleted.'}.to_json
+	end
 
 end

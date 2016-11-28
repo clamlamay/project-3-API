@@ -1,7 +1,6 @@
 angular.module('karaokeApp')
 .controller('AddSongCtrl', function($scope, $http, $location, $rootScope) {
 
-  // console.log($cookies)
   $scope.messages = [
     'Add your song! Please fill out all fields.',
     'Thanks for your lyrics!'
@@ -12,12 +11,11 @@ angular.module('karaokeApp')
   $scope.fetch = function() {
     $http.get('http://localhost:9292/songs').success(function (results) {
       $scope.songs = results;
-      // console.log($rootScope.key);
     }).error(function(err) {
       console.log('Fetch failed; it didn\'t happen');
       console.log(err);
     });
-  }
+  };
 
   $scope.fetch();
 
@@ -40,17 +38,14 @@ angular.module('karaokeApp')
   };
 
   $scope.changeRouteAccount = function() {
-    // goto create
     $location.path('/user');
   };
 
   $scope.changeRouteSongs = function() {
-    // goto create
     $location.path('/songs');
   };
 
   $scope.changeRouteScores = function() {
-    // goto create
     $location.path('/scores');
   };
 
