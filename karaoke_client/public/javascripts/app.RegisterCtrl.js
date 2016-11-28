@@ -7,10 +7,10 @@ angular.module('karaokeApp')
     $http({
         url: 'http://localhost:9292/points/',
         method: 'POST',
-        params: { score: 0, account_id: $rootScope.id }
+        params: { score: 0, username: $rootScope.user }
       }).success(function(results) {
         $rootScope.points = results.score;
-        console.log(results.account_id);
+        console.log(results.username);
         console.log(results.score);
       }).error(function(err) {
         console.log('Ajax request failed.');
