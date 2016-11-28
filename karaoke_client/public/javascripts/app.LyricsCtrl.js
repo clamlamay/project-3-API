@@ -69,6 +69,20 @@ angular.module('karaokeApp')
       $location.path('/' + path + '' );
     };
 
+    $scope.changeRouteAdd = function() {
+    $location.path('/add');
+     };
+
+    $scope.changeRouteAccount = function() {
+      // goto create
+      $location.path('/user');
+    };
+
+    $scope.changeRouteSongs = function() {
+      // goto create
+      $location.path('/songs');
+    };
+
     $scope.guessLyric = function(guess) {
       console.log("This is their guess: " + guess);
       var answer = $scope.longestWord;
