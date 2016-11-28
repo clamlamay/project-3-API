@@ -11,13 +11,13 @@ angular.module('karaokeApp', ['ngRoute']).config([
     })
 
     $routeProvider
-      .when('/scores', {
-        templateUrl: 'ngViews/score.html',
-        controller: 'ScoreCtrl'
-      })
       .when('/', {
         templateUrl: 'ngViews/home.html',
         controller: 'LoginCtrl'
+      })
+      .when('/scores', {
+        templateUrl: 'ngViews/score.html',
+        controller: 'ScoreCtrl'
       })
       .when('/register', {
         templateUrl: 'ngViews/register.html',
@@ -40,7 +40,6 @@ angular.module('karaokeApp', ['ngRoute']).config([
         controller: 'LyricsCtrl'
       });
 
-
-    // $routeProvider.otherwise({ redirectTo: '/' });
+    $routeProvider.otherwise({ redirectTo: '/' });
   }
 ]);
