@@ -19,23 +19,23 @@ A lyric API with a twist. Add your lyrics to the database and play other user’
 
 
 ## Technologies:
-SQL
-Sinatra
-Angular.js
-Ruby
-Node.js
-Express
-ActiveRecord
-Skeleton
+- SQL
+- Sinatra
+- Angular.js
+- Ruby
+- Node.js
+- Express
+- ActiveRecord
+- Skeleton
 
 
 ## Approach:
-Create wireframes and user stories
-Establish models and ERDs
-Built server and RESTful APIs
-Implemented user login with Angular.js
-Created routes and controllers
-Stylized
+1. Create wireframes and user stories
+2. Establish models and ERDs
+3. Build server and RESTful APIs
+4. Implement user login with Angular.js
+5. Create views and controllers
+6. Stylize
 
 
 ## Wireframes:
