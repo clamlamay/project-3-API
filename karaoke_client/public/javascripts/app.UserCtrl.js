@@ -1,8 +1,10 @@
 angular.module('karaokeApp')
 .controller('UserCtrl', function($scope, $http, $location, $rootScope) {
 
+  $scope.message = "Login Required";
+  $scope.userPage = false;
   $scope.songs = [];
-  $scope.points = '';
+  $scope.points = "";
   $scope.username = $rootScope.user;
 
   $scope.fetch = function() {
@@ -28,7 +30,15 @@ angular.module('karaokeApp')
     });
   };
 
-  $scope.fetch();
+  $scope.apiKeyCheck = function(){
+    if ($rootScope.apiKey === "kota") {
+      $scope.userPage = true;
+      $scope.message = "";
+      $scope.fetch();
+    }
+  };
+  $scope.apiKeyCheck();
+
 
 $scope.changeRoute = function() {
     $location.path('/add');

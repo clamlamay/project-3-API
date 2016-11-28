@@ -15,6 +15,8 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
+        <th>&nbsp;</th>     
+        </tr>
         <tr ng-repeat="song in songs">
           <td>{{song.title}}</td>
           <td>{{song.artist}}</td>
@@ -34,6 +36,4 @@
   $('.tbl-header').css({'padding-right':scrollWidth});
   }).resize();
 </script>
-
-
 

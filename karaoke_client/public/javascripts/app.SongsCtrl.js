@@ -1,7 +1,18 @@
 angular.module('karaokeApp')
-.controller('SongsCtrl', function($scope, $http, $location, $routeParams) {
+.controller('SongsCtrl', function($scope, $http, $location, $routeParams, $rootScope) {
 
   $scope.songs = [];
+  $scope.message = "API Key Required";
+  $scope.playlist = true;
+
+  $scope.apiKeyCheck = function(){
+    if ($rootScope.apiKey === "kota") {
+      $scope.playlist = false;
+      $scope.message = "";
+    }
+  };
+
+  $scope.apiKeyCheck();
 
   $scope.changeRoute = function() {
     $location.path('/add');
@@ -34,9 +45,9 @@ angular.module('karaokeApp')
   $scope.fetch();
 
   $scope.showLyric = function(id) {
-    // console.log(id, ' is the id')
     $location.path('/' + id );
   };
+
 
 });
 

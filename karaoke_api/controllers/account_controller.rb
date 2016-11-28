@@ -6,6 +6,11 @@ class AccountsController < ApplicationController
 		Account.all.to_json
 	end
 
+	get '/:id' do
+		@id = params[:id]
+		Account.find(@id).to_json
+	end
+
 	post '/register' do
 		@username = params[:username]
 		@password = params[:password]
