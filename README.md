@@ -9,7 +9,7 @@ A lyric API with a twist. Add your lyrics to the database and play other user’
 ## Project Requirements:
 - An individual server application written to serve a RESTful API
 - An individual client application written to consume the API
-- Have at three related models
+- Have at least three related models
 - Include all major CRUD functions in a RESTful API for at least one of those models
 - Consume your own API by making the front-end with HTML, JavaScript, jQuery and Angular
 - Add authentication to your API to restrict access to appropriate users
