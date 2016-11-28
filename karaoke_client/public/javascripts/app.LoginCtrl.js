@@ -25,7 +25,7 @@ angular.module('karaokeApp')
         $rootScope.user = results[0].username;
         console.log("Current user: " + $rootScope.user);
         // $scope.messages = 'Welcome back, ' + username + '!' ;
-        $location.path('/add')
+        $location.path('/add');
         $scope.retrievePoints();
       } else if ( $scope.password !== results[0].password ) {
         $scope.messages = 'Incorrect password, try again.' ;

@@ -1,15 +1,17 @@
 <div class="container" class="u-full-width">
 	<div class="seven columns headertext animated fadeInDown">
-	<h1>Lyric Page</h1>
+	
 	<br>
 	<div ng-hide="yay">
-		<h1>You're so smart :)</h1>
+		<img src="images/star.png" class="animated infinite rotateIn"/><h1>You're Smart!<h1> <img src="images/star.png" class="animated infinite rotateIn"/>
 	</div>
 	<div ng-hide="nay">
 		<h1>Boo, you whore.</h1>
+		
 	</div>
 	<section>
 	    <article ng-hide="game">
+	    	<h1>Lyric Page</h1>
 		    <form ng-submit="guessLyric(guess)">
 			    <p class="line-1 anim-typewriter">"{{first}} <input type="text" ng-model="guess" placeholder=""> {{second}}"</p>
 			    <input type="submit" value="Guess!">

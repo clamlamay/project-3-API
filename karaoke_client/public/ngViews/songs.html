@@ -1,37 +1,39 @@
-<h1>Playlist</h1>
-
-<!-- <section>
-    <article ng-repeat="song in songs">
-        <button ng-click="showLyric(song.id)">
-	        <h3>{{song.title}}</h3>
-	        <p>by <em>{{song.artist}}</em></p>
-	       <!  <p>{{song.id}}</p> -->
-	  <!--       <p>{{song.account_id}}</p>
-	    </button>
-    </article>
+<section>
+  <h2>Playlist</h2>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Account_ID</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr ng-repeat="song in songs">
+          <td>{{song.title}}</td>
+          <td>{{song.artist}}</td>
+          <td>{{song.account_id}}</td>
+          <td><button ng-click="showLyric(song.id)">PLAY</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
+  </br>
+  <button ng-click="changeRoute()">Add Song</button>&nbsp;<button ng-click="changeRouteAccount()">Your Music</button>&nbsp;<button ng-click="changeRouteScores()">Leaderboard</button>
 
-<br>
-<button ng-click="changeRoute()">Add Songs</button> --> 
-
-<table class="u-full-width">
-  <tbody>
-  	<tr>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Account_ID</th>
-	  <th>&nbsp;</th>     
-    </tr>
-    <tr ng-repeat="song in songs">
-      <td>{{song.title}}</td>
-      <td>{{song.artist}}</td>
-      <td>{{song.account_id}}</td>
-      <td> <button ng-click="showLyric(song.id)">PLAY</button></td>
-    </tr>
-  </tbody>
-</table>
-
-<button ng-click="changeRoute()">Add Songs</button>
+<script>
+  $(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+  }).resize();
+</script>
 
 
 

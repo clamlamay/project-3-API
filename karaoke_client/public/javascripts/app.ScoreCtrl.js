@@ -18,8 +18,17 @@ angular.module('karaokeApp')
   $scope.populateList();
 
   $scope.changeRoute = function() {
+    $location.path('/add');
+  };
+
+  $scope.changeRouteAccount = function() {
     // goto create
-    $location.path('/scores');
+    $location.path('/user');
+  };
+
+  $scope.changeRouteSongs = function() {
+    // goto create
+    $location.path('/songs');
   };
 
 });

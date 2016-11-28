@@ -1,5 +1,5 @@
 angular.module('karaokeApp')
-.controller('UserCtrl', function($scope, $http, $rootScope) {
+.controller('UserCtrl', function($scope, $http, $location, $rootScope) {
 
   $scope.songs = [];
   $scope.points = '';
@@ -29,6 +29,25 @@ angular.module('karaokeApp')
   };
 
   $scope.fetch();
+
+$scope.changeRoute = function() {
+    $location.path('/add');
+  };
+
+  $scope.changeRouteAccount = function() {
+    // goto create
+    $location.path('/user');
+  };
+
+  $scope.changeRouteSongs = function() {
+    // goto create
+    $location.path('/songs');
+  };
+
+  $scope.changeRouteScores = function() {
+    // goto create
+    $location.path('/scores');
+  };
 
   $scope.removeSong = function(song) {
     console.log(song.id);

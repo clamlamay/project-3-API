@@ -36,8 +36,22 @@ angular.module('karaokeApp')
   };
 
   $scope.changeRoute = function() {
+    $location.path('/add');
+  };
+
+  $scope.changeRouteAccount = function() {
+    // goto create
+    $location.path('/user');
+  };
+
+  $scope.changeRouteSongs = function() {
     // goto create
     $location.path('/songs');
-  }
+  };
+
+  $scope.changeRouteScores = function() {
+    // goto create
+    $location.path('/scores');
+  };
 
 });
