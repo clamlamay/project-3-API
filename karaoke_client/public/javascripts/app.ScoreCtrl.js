@@ -10,6 +10,7 @@ angular.module('karaokeApp')
       highToLow.sort(function(a, b){
         return b.score-a.score
       })
+      // Capitalizes usernames
       for (var i = 0; i < highToLow.length; i++) {
         highToLow[i].username = highToLow[i].username.charAt(0).toUpperCase() + highToLow[i].username.substr(1);;
       }
@@ -25,13 +26,10 @@ angular.module('karaokeApp')
   };
 
   $scope.changeRouteAccount = function() {
-    // goto create
     $location.path('/user');
   };
 
   $scope.changeRouteSongs = function() {
-    // goto create
     $location.path('/songs');
   };
-
 });

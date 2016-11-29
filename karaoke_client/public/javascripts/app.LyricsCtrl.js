@@ -1,10 +1,9 @@
 angular.module('karaokeApp')
   .controller('LyricsCtrl', function($scope, $http, $location, $routeParams, $rootScope) {
-
-    // song ID the user clicked from songs page
+    // ID of song the user clicked from songs page
     var currentId = $routeParams.id;
 
-    $scope.longestWord = "";
+    $scope.missingWord = "";
     $scope.first = "";
     $scope.second = "";
 
@@ -15,26 +14,22 @@ angular.module('karaokeApp')
     $scope.fetch = function() {
       console.log(currentId)
       $http.get('http://localhost:9292/songs/' + currentId).success(function (results) {
-        
-        var lyrics = results.lyrics;
+        // Remove line-breaks from lyrics, split words by spaces
+        var lyrics = (results.lyrics).replace(/\r?\n|\r/g, ' ');
         var lyricsArray = lyrics.split(" ");
-
-        var longestWord = 0;
+        // Find longest word in lyrics
+        var longestWordLength = 0;
         var missingWord = null;
-
         for (var i = 0; i < lyricsArray.length; i++) {
-          if (lyricsArray[i].length > longestWord) {
-              longestWord = lyricsArray[i].length 
+          if (lyricsArray[i].length > longestWordLength) {
+              longestWordLength = lyricsArray[i].length 
               missingWord = lyricsArray[i]
           };
         };
-
         // Removes period, comma or question mark from word
-        missingWord = missingWord.replace(/[.,?]/g, '');
-        $scope.longestWord = missingWord
-
-        console.log(lyrics);
-        console.log("Missing word: " + missingWord);
+        missingWord = missingWord.replace(/[.,?()]/g, '');
+        $scope.missingWord = missingWord
+        // console.log("This is the missing word: " + missingWord);
 
         // Split lyrics into two parts for user interface
         var index = lyrics.indexOf(missingWord);  // Gets the first index where a space occours
@@ -74,18 +69,16 @@ angular.module('karaokeApp')
      };
 
     $scope.changeRouteAccount = function() {
-      // goto create
       $location.path('/user');
     };
 
     $scope.changeRouteSongs = function() {
-      // goto create
       $location.path('/songs');
     };
 
     $scope.guessLyric = function(guess) {
       console.log("This is their guess: " + guess);
-      var answer = $scope.longestWord;
+      var answer = $scope.missingWord;
       $scope.game = true;
       if ( guess.toLowerCase() === answer.toLowerCase() ){
           console.log("You're so smart :) ");
@@ -93,11 +86,10 @@ angular.module('karaokeApp')
           $scope.updateScore();
           $scope.yay = false;
       } else {
-          console.log("Boo, you suk.");
+          console.log("Wrong.");
           $rootScope.points--;
           $scope.updateScore();
           $scope.nay = false;
       };
     };
-
 });

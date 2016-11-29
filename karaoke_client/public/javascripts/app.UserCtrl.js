@@ -2,7 +2,6 @@ angular.module('karaokeApp')
 .controller('UserCtrl', function($scope, $http, $location, $rootScope) {
 
   $scope.message = "Login Required";
-  $scope.userPage = false;
   $scope.songs = [];
   $scope.points = "";
   $scope.username = $rootScope.user;
@@ -12,9 +11,9 @@ angular.module('karaokeApp')
       console.log("This is the current user's id:");
       console.log($rootScope.id)
       for (var i = 0; i < results.length; i++) {
-          if ( results[i].account_id === $rootScope.id ) {
-            $scope.songs.push(results[i]);
-          };
+        if ( results[i].account_id === $rootScope.id ) {
+          $scope.songs.push(results[i]);
+        };
       };
     }).error(function(err) {
       console.log('Fetch failed; it didn\'t happen');
@@ -32,30 +31,25 @@ angular.module('karaokeApp')
 
   $scope.apiKeyCheck = function(){
     if ($rootScope.apiKey === "kota") {
-      $scope.userPage = true;
       $scope.message = "";
       $scope.fetch();
-    }
+    };
   };
   $scope.apiKeyCheck();
 
-
-$scope.changeRoute = function() {
+  $scope.changeRoute = function() {
     $location.path('/add');
   };
 
   $scope.changeRouteAccount = function() {
-    // goto create
     $location.path('/user');
   };
 
   $scope.changeRouteSongs = function() {
-    // goto create
     $location.path('/songs');
   };
 
   $scope.changeRouteScores = function() {
-    // goto create
     $location.path('/scores');
   };
 
@@ -64,11 +58,12 @@ $scope.changeRoute = function() {
     var Sure = confirm('Do you want to delete that song?');
     if (Sure) {
       $http.delete('http://localhost:9292/songs/' + song.id).success(function(result) {
+        $scope.songs = [];
         $scope.fetch(); // auto-update my list
       }).error(function(err) {
         console.log(err);
       });
-    }
+    };
   };
 
 });

@@ -9,7 +9,7 @@ angular.module('karaokeApp')
     if ($rootScope.apiKey === "kota") {
       $scope.playlist = false;
       $scope.message = "";
-    }
+    };
   };
 
   $scope.apiKeyCheck();
@@ -19,17 +19,14 @@ angular.module('karaokeApp')
   };
 
   $scope.changeRouteAccount = function() {
-    // goto create
     $location.path('/user');
   };
 
   $scope.changeRouteSongs = function() {
-    // goto create
     $location.path('/songs');
   };
 
   $scope.changeRouteScores = function() {
-    // goto create
     $location.path('/scores');
   };
 
@@ -40,14 +37,12 @@ angular.module('karaokeApp')
       console.log('Fetch failed; it didn\'t happen');
       console.log(err);
       });
-    };
+  };
 
   $scope.fetch();
 
   $scope.showLyric = function(id) {
     $location.path('/' + id );
   };
-
-
 });
 

@@ -26,8 +26,6 @@ angular.module('karaokeApp')
       if ( $scope.username === results[0].username && $scope.password === results[0].password ) {
         $rootScope.id = results[0].id;
         $rootScope.user = results[0].username;
-        console.log("Current user: " + $rootScope.user);
-        // $scope.messages = 'Welcome back, ' + username + '!' ;
         $scope.retrievePoints();
         $location.path('/add');
       } else if ( $scope.password !== results[0].password ) {
@@ -44,8 +42,6 @@ angular.module('karaokeApp')
   $scope.changeRoute = function() {
     $location.path('/');
   };
-
-
 });
 
 
