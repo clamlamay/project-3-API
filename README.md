@@ -5,6 +5,7 @@ A lyric API with a twist. Add your lyrics to the database and play other user’
 
 **Contributors:** Christopher Lamlamay, Karly Hoffman
 
+![Typeoke](https://68.media.tumblr.com/51fd4bdf7c6fd1a9e07081872401e6af/tumblr_oicpo2wrVj1sq81swo1_540.png "Typeoke")
 
 ## Project Requirements:
 - An individual server application written to serve a RESTful API
@@ -39,5 +40,4 @@ A lyric API with a twist. Add your lyrics to the database and play other user’
 
 
 ## Wireframes:
-![alt text](http://68.media.tumblr.com/b08026efe76169ca6d6d5b990e2edd15/tumblr_ohczmltP061sq81swo1_1280.jpg "Karaoke API")
 ![wireframes](http://68.media.tumblr.com/b08026efe76169ca6d6d5b990e2edd15/tumblr_ohczmltP061sq81swo1_1280.jpg "Karaoke API")
