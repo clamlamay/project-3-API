@@ -40,3 +40,4 @@ A lyric API with a twist. Add your lyrics to the database and play other user’
 
 ## Wireframes:
 ![alt text](http://68.media.tumblr.com/b08026efe76169ca6d6d5b990e2edd15/tumblr_ohczmltP061sq81swo1_1280.jpg "Karaoke API")
+![wireframes](http://68.media.tumblr.com/b08026efe76169ca6d6d5b990e2edd15/tumblr_ohczmltP061sq81swo1_1280.jpg "Karaoke API")
