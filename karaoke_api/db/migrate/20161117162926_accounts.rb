@@ -9,3 +9,10 @@ class Accounts < ActiveRecord::Migration[5.0]
 	end
   end
 end
+
+
+
+
+
+
+
